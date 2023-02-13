@@ -4,7 +4,7 @@
   "version": "0.24.0",
   "architectures": ["x86_64"],
   "description": "Provides a way to load and enumerate PKCS#11 modules",
-  "website": " https://github.com/p11-glue/p11-kit",
+  "website": "https://github.com/p11-glue/p11-kit",
   "downloadLinks": ["https://github.com/p11-glue/p11-kit/releases/download/0.24.0/p11-kit-0.24.0.tar.xz"],
   "md5sums": ["8ccf11c4a2e2e505b8e516d8549e64a5"],
   "patchesLinks": [],

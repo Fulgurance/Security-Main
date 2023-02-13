@@ -3,8 +3,8 @@ class Target < ISM::Software
     def prepare
         @buildDirectory = true
         super
-        fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compa",20)
-        fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compa",32)
+        fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",20)
+        fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",31)
 
         data = <<-CODE
         # Copy existing anchor modifications to /etc/ssl/local
@@ -13,7 +13,7 @@ class Target < ISM::Software
         # Generate a new trust store
         /usr/sbin/make-ca -f -g
         CODE
-        fileAppendData("#{mainWorkDirectoryPath(false)}trust/trust-extract-compa",data)
+        fileAppendData("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",data)
     end
 
     def configure

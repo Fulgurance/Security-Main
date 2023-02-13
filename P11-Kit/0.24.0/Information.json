@@ -10,5 +10,11 @@
   "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [],
-  "options": []
+  "options": [
+    {
+      "name": "Libtasn1",
+      "description": "Enable Libtasn1 support for trust",
+      "active": true
+    }
+  ]
 }

@@ -37,6 +37,7 @@ class Target < ISM::Software
     def install
         super
         makeLink("/usr/libexec/p11-kit/trust-extract-compat","#{Ism.settings.rootPath}usr/bin/update-ca-certificates",:symbolicLinkByOverwrite)
+        makeLink("./pkcs11/p11-kit-trust.so","#{Ism.settings.rootPath}usr/lib/libnssckbi.so",:symbolicLinkByOverwrite)
     end
 
 end

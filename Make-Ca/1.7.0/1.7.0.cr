@@ -8,7 +8,7 @@ class Target < ISM::Software
     def install
         super
         makeDirectory("#{Ism.settings.rootPath}etc/ssl/local")
-        setPermissions("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/ssl/local",0o755)
+        setPermissions("#{Ism.settings.rootPath}etc/ssl/local",0o755)
         Ism.softwareIsInstalled(@information) ? runMakeCaCommand(["-r"]) : runMakeCaCommand(["-g"])
     end
 

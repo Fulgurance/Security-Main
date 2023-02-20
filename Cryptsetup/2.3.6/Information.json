@@ -1,0 +1,30 @@
+{
+  "port": "Security-Main",
+  "name": "Cryptsetup",
+  "version": "2.3.6",
+  "architectures": ["x86_64"],
+  "description": "Cryptsetup and LUKS open-source disk encryption",
+  "website": "https://gitlab.com/cryptsetup/cryptsetup/",
+  "downloadLinks": ["https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.6.tar.xz"],
+  "md5sums": ["504d1ab22cbc4d1a59a8d8c7ee5ed3bf"],
+  "patchesLinks": [],
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "Json-C",
+      "version": "0.15.0",
+      "options": []
+    },
+    {
+      "name": "Lvm2",
+      "version": "2.3.13",
+      "options": []
+    },
+    {
+      "name": "Popt",
+      "version": "1.18.0",
+      "options": []
+    }
+  ],
+  "options": []
+}

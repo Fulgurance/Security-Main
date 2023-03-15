@@ -16,5 +16,34 @@
       "options": []
     }
   ],
-  "options": []
+  "options": [
+    {
+      "name": "Cracklib",
+      "description": "Enable cracklib support to enforce passwords",
+      "active": true,
+      "dependencies": [
+        {
+          "name": "Cracklib",
+          "version": "2.9.7",
+          "options": []
+        }
+      ],
+      "downloadLinks": [],
+      "md5sums": []
+    },
+    {
+      "name": "Linux-Pam",
+      "description": "Enable linux-pam support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Linux-Pam",
+          "version": "1.5.1",
+          "options": []
+        }
+      ],
+      "downloadLinks": [],
+      "md5sums": []
+    }
+  ]
 }

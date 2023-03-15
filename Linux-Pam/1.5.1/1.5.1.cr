@@ -3,7 +3,8 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileDeleteLine("#{buildDirectoryPath(false)}modules/pam_namespace/Makefile.am")
+        fileDeleteLine("#{buildDirectoryPath(false)}modules/pam_namespace/Makefile.am",38)
+        runAutoreconfCommand([""],buildDirectoryPath)
     end
 
     def configure

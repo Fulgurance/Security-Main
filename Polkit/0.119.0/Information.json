@@ -1,0 +1,54 @@
+{
+  "port": "Security-Main",
+  "name": "Polkit",
+  "version": "0.119.0",
+  "architectures": ["x86_64"],
+  "description": "Toolkit for defining and handling authorizations",
+  "website": "https://www.freedesktop.org/software/polkit",
+  "downloadLinks": ["https://www.freedesktop.org/software/polkit/releases/polkit-0.119.tar.gz"],
+  "md5sums": ["b945e683eb5d633745864af6c5746726"],
+  "patchesLinks": ["https://www.linuxfromscratch.org/patches/blfs/11.0/polkit-0.119-fix_elogind_detection-1.patch"],
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "Glib",
+      "version": "2.68.4",
+      "options": []
+    },
+    {
+      "name": "Js78",
+      "version": "78.13.0",
+      "options": []
+    }
+  ],
+  "options": [
+    {
+      "name": "Linux-Pam",
+      "description": "Enable linux-pam support also required for elogind",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Linux-Pam",
+          "version": "1.5.1",
+          "options": []
+        }
+      ],
+      "downloadLinks": [],
+      "md5sums": []
+    },
+    {
+      "name": "Elogind",
+      "description": "Enable elogind support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Elogind",
+          "version": "246.10.0",
+          "options": []
+        }
+      ],
+      "downloadLinks": [],
+      "md5sums": []
+    }
+  ]
+}

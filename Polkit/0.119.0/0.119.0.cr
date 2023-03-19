@@ -43,4 +43,11 @@ class Target < ISM::Software
         end
     end
 
+    def install
+        super
+
+        runGroupAddCommand(["-fg","27","polkitd"])
+        runUserAddCommand(["-c","\"PolicyKit Daemon Owner\"","-d","/etc/polkit-1","-u","27","-g","polkitd","-s","/bin/false","polkitd"])
+    end
+
 end

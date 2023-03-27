@@ -26,5 +26,20 @@
       "options": []
     }
   ],
-  "options": []
+  "options": [
+    {
+      "name": "Openrc",
+      "description": "Enable openrc support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Openrc",
+          "version": "0.46.0",
+          "options": []
+        }
+      ],
+      "downloadLinks": ["https://gitweb.gentoo.org/repo/gentoo.git/plain/sys-fs/cryptsetup/files/2.4.3-dmcrypt.rc"],
+      "md5sums": ["53d5e2fd232d8c8d4719c20cc8e740b3"]
+    },
+  ]
 }

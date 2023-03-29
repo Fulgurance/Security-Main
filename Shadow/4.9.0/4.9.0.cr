@@ -2,6 +2,7 @@ class Target < ISM::Software
 
     def prepare
         super
+
         fileReplaceText("#{buildDirectoryPath(false)}/src/Makefile.in","groups$(EXEEXT) ","")
         replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","groups.1 "," ")
         replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","getspnam.3 "," ")
@@ -14,25 +15,30 @@ class Target < ISM::Software
 
     def configure
         super
+
         configureSource([   "--sysconfdir=/etc",
-                            "--with-group-name-max-length=32"],
+                            "--with-group-name-max-length=32",
+                            option("Cracklib") ? "--with-libcrack" : ""],
                             buildDirectoryPath)
     end
 
     def build
         super
-        makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+
+        makeSource(path: buildDirectoryPath)
     end
 
     def prepareInstallation
         super
-        makeSource([Ism.settings.makeOptions,"exec_prefix=/usr","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
-        makeSource([Ism.settings.makeOptions,"-C","man","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install-man"],buildDirectoryPath)
+
+        makeSource(["exec_prefix=/usr","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource(["-C","man","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install-man"],buildDirectoryPath)
         makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/etc/default")
     end
 
     def install
         super
+
         runPwconvCommand
         runGrpconvCommand
     end

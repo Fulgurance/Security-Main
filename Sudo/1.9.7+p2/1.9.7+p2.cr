@@ -9,7 +9,7 @@ class Target < ISM::Software
                             "--with-all-insults",
                             "--with-env-editor",
                             "--docdir=/usr/share/doc/sudo-1.9.7p2",
-                            "--with-passprompt=\"[sudo] password for %p: \""],
+                            "--with-passprompt=[sudo] password for %p: "],
                             buildDirectoryPath)
     end
 

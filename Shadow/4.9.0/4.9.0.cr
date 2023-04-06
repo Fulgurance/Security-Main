@@ -3,6 +3,7 @@ class Target < ISM::Software
     def prepare
         super
 
+        fileReplaceText("#{buildDirectoryPath(false)}/libsubid/Makefile.am","$(LIBTCB)","$(LIBTCB)\n$\t(LIBPAM)")
         fileReplaceText("#{buildDirectoryPath(false)}/src/Makefile.in","groups$(EXEEXT) ","")
         replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","groups.1 "," ")
         replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","getspnam.3 "," ")
@@ -18,7 +19,8 @@ class Target < ISM::Software
 
         configureSource([   "--sysconfdir=/etc",
                             "--with-group-name-max-length=32",
-                            option("Cracklib") ? "--with-libcrack" : ""],
+                            option("Cracklib") ? "--with-libcrack" : "--without-libcrack",
+                            option("Linux-Pam") ? "--with-libpam" : "--without-libpam"],
                             buildDirectoryPath)
     end
 

@@ -3,7 +3,7 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileReplaceText("#{buildDirectoryPath(false)}/libsubid/Makefile.am","$(LIBTCB)","$(LIBTCB)\n\t$(LIBPAM)")
+        fileReplaceText("#{buildDirectoryPath(false)}/libsubid/Makefile.am","$(LIBTCB)","$(LIBTCB) \\n\t$(LIBPAM)")
         fileReplaceText("#{buildDirectoryPath(false)}/src/Makefile.in","groups$(EXEEXT) ","")
         replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","groups.1 "," ")
         replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","getspnam.3 "," ")

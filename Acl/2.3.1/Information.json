@@ -11,6 +11,11 @@
   "installedFiles": [],
   "dependencies": [
     {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    },
+    {
       "name": "Attr",
       "version": "2.5.1",
       "options": []

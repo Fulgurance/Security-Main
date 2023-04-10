@@ -11,6 +11,21 @@
   "installedFiles": [],
   "dependencies": [
     {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    },
+    {
+      "name": "Acl",
+      "version": "2.3.1",
+      "options": []
+    },
+    {
+      "name": "Attr",
+      "version": "2.55.1",
+      "options": []
+    },
+    {
       "name": "Libcap",
       "version": "2.53.0",
       "options": []

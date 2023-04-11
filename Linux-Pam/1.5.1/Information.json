@@ -9,7 +9,13 @@
   "md5sums": ["155f2a31d07077b2c63a1f135876c31b"],
   "patchesLinks": [],
   "installedFiles": [],
-  "dependencies": [],
+  "dependencies": [
+    {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    }
+  ],
   "options": [
     {
       "name": "Libpwquality",

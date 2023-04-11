@@ -4,7 +4,7 @@ class Target < ISM::Software
         super
 
         fileDeleteLine("#{buildDirectoryPath(false)}modules/pam_namespace/Makefile.am",38)
-        runAutoreconfCommand([] of String,buildDirectoryPath)
+        runAutoreconfCommand(path: buildDirectoryPath)
     end
 
     def configure
@@ -21,13 +21,13 @@ class Target < ISM::Software
     def build
         super
 
-        makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+        makeSource(path: buildDirectoryPath)
     end
     
     def prepareInstallation
         super
 
-        makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")
 

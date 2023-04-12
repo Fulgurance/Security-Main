@@ -13,7 +13,7 @@
     {
       "name": "SystemBase",
       "version": "0.2.0",
-      "options": []
+      "options": ["Pass3"]
     },
     {
       "name": "Acl",

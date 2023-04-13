@@ -8,6 +8,7 @@ class Target < ISM::Software
                             "--with-secure-path",
                             "--with-all-insults",
                             "--with-env-editor",
+                            option("Linux-Pam") ? "--with-pam" : "--without-pam",
                             "--docdir=/usr/share/doc/sudo-1.9.7p2",
                             "--with-passprompt=[sudo] password for %p: "],
                             buildDirectoryPath)
@@ -16,15 +17,15 @@ class Target < ISM::Software
     def build
         super
 
-        makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+        makeSource(path: buildDirectoryPath)
     end
     
     def prepareInstallation
         super
 
-        makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
-        if Dir.exists?("#{Ism.settings.rootPath}etc/pam.d")
+        if option("Linux-Pam")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")
 
             sudoData = <<-CODE

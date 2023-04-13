@@ -16,5 +16,20 @@
       "options": []
     }
   ],
-  "options": []
+  "options": [
+    {
+      "name": "Linux-Pam",
+      "description": "Enable linux-pam support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Linux-Pam",
+          "version": "1.5.1",
+          "options": []
+        }
+      ],
+      "downloadLinks": [],
+      "md5sums": []
+    }
+  ]
 }

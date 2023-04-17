@@ -29,6 +29,11 @@
       "name": "Libcap",
       "version": "2.53.0",
       "options": []
+    },
+    {
+      "name": "Libtool",
+      "version": "2.4.6",
+      "options": []
     }
   ],
   "options": [

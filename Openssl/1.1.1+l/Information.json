@@ -11,9 +11,9 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "name": "SystemBase",
-      "version": "0.2.0",
-      "options": ["Pass3"]
+      "name": "Zlib",
+      "version": "1.2.11",
+      "options": []
     }
   ],
   "options": []

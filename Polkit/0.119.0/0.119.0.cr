@@ -15,8 +15,7 @@ class Target < ISM::Software
                             "--disable-static",
                             "--with-os-type=#{Ism.settings.systemName}",
                             "--disable-libsystemd-login",
-                            "--disable-man-pages",
-                            "--enable-introspection=false"],
+                            "--disable-man-pages"],
                             buildDirectoryPath)
     end
 

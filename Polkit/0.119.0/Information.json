@@ -19,6 +19,11 @@
       "name": "Js",
       "version": "78.13.0",
       "options": []
+    },
+    {
+      "name": "Intltool",
+      "version": ">=0.40.0",
+      "options": []
     }
   ],
   "options": [

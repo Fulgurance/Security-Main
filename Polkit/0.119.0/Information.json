@@ -19,11 +19,6 @@
       "name": "Js",
       "version": "78.13.0",
       "options": []
-    },
-    {
-      "name": "Gobject-Introspection",
-      "version": "1.68.0",
-      "options": []
     }
   ],
   "options": [

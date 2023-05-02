@@ -37,14 +37,21 @@ class Target < ISM::Software
             fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/sudo",sudoData)
         end
 
-        if softwareIsInstalled("Qt")
-            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d")
+        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d")
 
-            sudoData = <<-CODE
-            Defaults env_keep += QT5DIR
-            CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d/qt",sudoData)
-        end
+        qtData = <<-CODE
+        Defaults env_keep += QT5DIR
+        Defaults env_keep += QT_PLUGIN_PATH
+        Defaults env_keep += QML2_IMPORT_PATH
+        CODE
+        fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d/qt",qtData)
+
+        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d")
+
+        kdeData = <<-CODE
+        Defaults env_keep += KF5_PREFIX
+        CODE
+        fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d/kde",kdeData)
     end
 
     def install

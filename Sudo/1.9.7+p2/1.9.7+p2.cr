@@ -36,6 +36,15 @@ class Target < ISM::Software
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/sudo",sudoData)
         end
+
+        if softwareIsInstalled("Qt")
+            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d")
+
+            sudoData = <<-CODE
+            Defaults env_keep += QT5DIR
+            CODE
+            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d/qt",sudoData)
+        end
     end
 
     def install

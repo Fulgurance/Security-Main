@@ -4,6 +4,8 @@ class Target < ISM::Software
         super
 
         configureSource([   "--build=#{Ism.settings.architecture}",
+                            "--host=#{Ism.settings.targetName}",
+                            "--target=#{Ism.settings.targetName}",
                             "--prefix=/usr",
                             "--libexecdir=/usr/lib",
                             "--with-secure-path",

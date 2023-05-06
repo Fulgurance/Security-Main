@@ -3,17 +3,14 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--build=#{Ism.settings.architecture}",
-                            "--host=#{Ism.settings.targetName}",
-                            "--target=#{Ism.settings.targetName}",
-                            "--prefix=/usr",
+        configureSource([   "--prefix=/usr",
                             "--libexecdir=/usr/lib",
                             "--with-secure-path",
                             "--with-all-insults",
                             "--with-env-editor",
                             option("Linux-Pam") ? "--with-pam" : "--without-pam",
                             "--docdir=/usr/share/doc/sudo-1.9.7p2",
-                            "--with-passprompt=[sudo] password for %p: "],
+                            "--with-passprompt=\"[sudo] password for %p: \""],
                             buildDirectoryPath)
     end
 

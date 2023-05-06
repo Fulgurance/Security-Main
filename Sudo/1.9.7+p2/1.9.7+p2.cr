@@ -3,7 +3,8 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
+        configureSource([   "--build=#{Ism.settings.architecture}",
+                            "--prefix=/usr",
                             "--libexecdir=/usr/lib",
                             "--with-secure-path",
                             "--with-all-insults",

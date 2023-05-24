@@ -44,7 +44,7 @@
           "version": "2.9.7",
           "options": []
         }
-      ],
+      ]
     },
     {
       "name": "Linux-Pam",
@@ -56,7 +56,7 @@
           "version": "1.5.1",
           "options": []
         }
-      ],
+      ]
     }
   ]
 }

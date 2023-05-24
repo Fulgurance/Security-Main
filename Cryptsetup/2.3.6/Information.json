@@ -5,9 +5,6 @@
   "architectures": ["x86_64"],
   "description": "Cryptsetup and LUKS open-source disk encryption",
   "website": "https://gitlab.com/cryptsetup/cryptsetup/",
-  "downloadLinks": ["https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.6.tar.xz"],
-  "md5sums": ["504d1ab22cbc4d1a59a8d8c7ee5ed3bf"],
-  "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [
     {
@@ -38,8 +35,6 @@
           "options": []
         }
       ],
-      "downloadLinks": ["https://gitweb.gentoo.org/repo/gentoo.git/plain/sys-fs/cryptsetup/files/2.4.3-dmcrypt.rc"],
-      "md5sums": ["53d5e2fd232d8c8d4719c20cc8e740b3"]
     }
   ]
 }

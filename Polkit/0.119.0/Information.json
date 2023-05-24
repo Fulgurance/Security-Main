@@ -5,9 +5,6 @@
   "architectures": ["x86_64"],
   "description": "Toolkit for defining and handling authorizations",
   "website": "https://www.freedesktop.org/software/polkit",
-  "downloadLinks": ["https://www.freedesktop.org/software/polkit/releases/polkit-0.119.tar.gz"],
-  "md5sums": ["b945e683eb5d633745864af6c5746726"],
-  "patchesLinks": ["https://www.linuxfromscratch.org/patches/blfs/11.0/polkit-0.119-fix_elogind_detection-1.patch"],
   "installedFiles": [],
   "dependencies": [
     {
@@ -38,8 +35,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     },
     {
       "name": "Elogind",
@@ -52,8 +47,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     }
   ]
 }

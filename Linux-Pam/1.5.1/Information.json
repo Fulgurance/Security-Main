@@ -5,9 +5,6 @@
   "architectures": ["x86_64"],
   "description": "Linux PAM (Pluggable Authentication Modules for Linux) project",
   "website": "https://github.com/linux-pam/linux-pam",
-  "downloadLinks": ["https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1.tar.xz"],
-  "md5sums": ["155f2a31d07077b2c63a1f135876c31b"],
-  "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [
     {
@@ -28,8 +25,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     }
   ]
 }

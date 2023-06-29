@@ -42,6 +42,15 @@ class Target < ISM::Software
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/polkit-1",polkitData)
         end
+
+        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/polkit-1/rules.d/")
+
+        adminData = <<-CODE
+        polkit.addAdminRule(function(action, subject) {
+            return ["unix-group:wheel"];
+        });
+        CODE
+        fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/polkit-1/rules.d/10-admin.rules",adminData)
     end
 
     def install

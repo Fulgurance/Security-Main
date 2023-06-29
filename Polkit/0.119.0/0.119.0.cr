@@ -32,7 +32,7 @@ class Target < ISM::Software
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
         if option("Linux-Pam")
-            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")
+            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d")
 
             polkitData = <<-CODE
             auth     include        system-auth
@@ -40,7 +40,7 @@ class Target < ISM::Software
             password include        system-password
             session  include        system-session
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/polkit-1",polkitData)
+            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/polkit-1",polkitData)
         end
     end
 

@@ -21,21 +21,14 @@
       "name": "Intltool",
       "version": ">=0.40.0",
       "options": []
+    },
+    {
+      "name": "Gobject-Introspection",
+      "version": "1.68.0",
+      "options": []
     }
   ],
   "options": [
-    {
-      "name": "Gobject-Introspection",
-      "description": "Enable gobject-introspection support",
-      "active": false,
-      "dependencies": [
-        {
-          "name": "Gobject-Introspection",
-          "version": "1.68.0",
-          "options": []
-        }
-      ]
-    },
     {
       "name": "Linux-Pam",
       "description": "Enable linux-pam support also required for elogind",

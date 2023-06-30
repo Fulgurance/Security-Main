@@ -16,7 +16,6 @@ class Target < ISM::Software
                             "--with-os-type=#{Ism.settings.systemName}",
                             "--disable-libsystemd-login",
                             "--disable-man-pages",
-                            "--enable-introspection=#{option("Gobject-Introspection") ? "yes" : "no"}",
                             "--enable-libelogind=#{option("Elogind") ? "yes" : "no"}",
                             "--with-authfw=#{option("Linux-Pam") ? "pam" : "shadow"}"],
                             buildDirectoryPath)

@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "Shadow",
   "version": "4.9.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Utility for converting UNIX password files to the shadow password format, plus programs for managing user and group accounts",
   "website": "https://shadow-maint.github.io/shadow/",
   "installedFiles": [],
@@ -10,7 +12,9 @@
     {
       "name": "SystemBase",
       "version": "0.2.0",
-      "options": ["Pass3"]
+      "options": [
+        "Pass3"
+      ]
     },
     {
       "name": "Acl",
@@ -45,7 +49,8 @@
           "version": "2.9.7",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     },
     {
       "name": "Linux-Pam",
@@ -57,7 +62,8 @@
           "version": "1.5.1",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "Make-Ca",
   "version": "1.7.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Utility to deliver and manage a complete PKI configuration for workstations and servers using only standard Unix utilities",
   "website": "https://github.com/djlucas/make-ca",
   "installedFiles": [],

@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "Sudo",
   "version": "1.9.7+p2",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Software allows a system administrator to delegate authority to give certain users the ability to run commands as root",
   "website": "https://www.sudo.ws/",
   "installedFiles": [],
@@ -25,7 +27,8 @@
           "version": "1.5.1",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

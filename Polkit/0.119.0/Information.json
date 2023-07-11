@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "Polkit",
   "version": "0.119.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Toolkit for defining and handling authorizations",
   "website": "https://www.freedesktop.org/software/polkit",
   "installedFiles": [],
@@ -40,7 +42,8 @@
           "version": "1.5.1",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     },
     {
       "name": "Elogind",
@@ -52,7 +55,8 @@
           "version": "246.10.0",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

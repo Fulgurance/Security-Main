@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "P11-Kit",
   "version": "0.24.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Provides a way to load and enumerate PKCS#11 modules",
   "website": "https://github.com/p11-glue/p11-kit",
   "installedFiles": [],
@@ -25,7 +27,8 @@
           "version": "4.17.0",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

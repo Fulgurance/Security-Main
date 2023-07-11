@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "Linux-Pam",
   "version": "1.5.1",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Linux PAM (Pluggable Authentication Modules for Linux) project",
   "website": "https://github.com/linux-pam/linux-pam",
   "installedFiles": [],
@@ -10,7 +12,9 @@
     {
       "name": "SystemBase",
       "version": "0.2.0",
-      "options": ["Pass3"]
+      "options": [
+        "Pass3"
+      ]
     }
   ],
   "kernelDependencies": [],
@@ -25,7 +29,8 @@
           "version": "1.4.4",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

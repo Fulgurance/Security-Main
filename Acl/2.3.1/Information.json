@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "Acl",
   "version": "2.3.1",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Commands for Manipulating POSIX Access Control Lists",
   "website": "https://savannah.nongnu.org/projects/acl",
   "installedFiles": [],
@@ -10,7 +12,9 @@
     {
       "name": "SystemBase",
       "version": "0.2.0",
-      "options": ["Pass3"]
+      "options": [
+        "Pass3"
+      ]
     },
     {
       "name": "Attr",

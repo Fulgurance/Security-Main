@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "Cryptsetup",
   "version": "2.3.6",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Cryptsetup and LUKS open-source disk encryption",
   "website": "https://gitlab.com/cryptsetup/cryptsetup/",
   "installedFiles": [],
@@ -35,7 +37,8 @@
           "version": "0.46.0",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

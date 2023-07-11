@@ -2,7 +2,9 @@
   "port": "Security-Main",
   "name": "Openssl",
   "version": "1.1.1+l",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Full-featured toolkit for general-purpose cryptography and secure communication",
   "website": "https://www.openssl.org/",
   "installedFiles": [],

@@ -25,7 +25,11 @@
       "options": []
     }
   ],
-  "kernelDependencies": ["CONFIG_MD","CONFIG_BLK_DEV_DM","CONFIG_DM_CRYPT"],
+  "kernelDependencies": [
+    "CONFIG_MD",
+    "CONFIG_BLK_DEV_DM",
+    "CONFIG_DM_CRYPT"
+  ],
   "options": [
     {
       "name": "Openrc",
@@ -45,28 +49,37 @@
       "description": "Enable xts support",
       "active": false,
       "dependencies": [],
-      "kernelDependencies": ["CONFIG_CRYPTO_XTS"]
+      "kernelDependencies": [
+        "CONFIG_CRYPTO_XTS"
+      ]
     },
     {
       "name": "Sha256",
       "description": "Enable sha256 support",
       "active": false,
       "dependencies": [],
-      "kernelDependencies": ["CONFIG_CRYPTO_SHA256"]
+      "kernelDependencies": [
+        "CONFIG_CRYPTO_SHA256"
+      ]
     },
     {
       "name": "Aes",
       "description": "Enable aes support",
       "active": false,
       "dependencies": [],
-      "kernelDependencies": ["CONFIG_CRYPTO_AES"]
+      "kernelDependencies": [
+        "CONFIG_CRYPTO_AES"
+      ]
     },
     {
       "name": "SymmetricKeyCipher",
       "description": "Enable symmetric key cipher support",
       "active": false,
       "dependencies": [],
-      "kernelDependencies": ["CONFIG_CRYPTO_USER_API_SKCIPHER"]
+      "kernelDependencies": [
+        "CONFIG_CRYPTO_USER_API_SKCIPHER"
+      ]
     }
-  ]
+  ],
+  "uniqueOptions": []
 }

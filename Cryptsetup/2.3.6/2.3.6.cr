@@ -38,7 +38,7 @@ class Target < ISM::Software
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/conf.d/dmcrypt",dmcryptData)
 
-            prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}Dmcrypt-Init.d","dmcrypt")
+            prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/Dmcrypt-Init.d","dmcrypt")
         end
     end
 

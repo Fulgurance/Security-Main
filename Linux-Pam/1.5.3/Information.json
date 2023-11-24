@@ -1,0 +1,76 @@
+{
+  "port": "Security-Main",
+  "name": "Linux-Pam",
+  "version": "1.5.3",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "Linux PAM (Pluggable Authentication Modules for Linux) project",
+  "website": "https://github.com/linux-pam/linux-pam",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": [
+        "Pass3"
+      ]
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Libpwquality",
+      "description": "Enable libpwquality support to enforce passwords",
+      "active": true,
+      "dependencies": [
+        {
+          "name": "Libpwquality",
+          "version": "1.4.5",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "BerkeleyDb",
+      "description": "Enable berkeleydb support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "BerkeleyDb",
+          "version": "5.3.28",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Libnsl",
+      "description": "Enable libnsl support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Libnsl",
+          "version": "2.0.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Libtirpc",
+      "description": "Enable libtirpc support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Libtirpc",
+          "version": "1.3.3",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}

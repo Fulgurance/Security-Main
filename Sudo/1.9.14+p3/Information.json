@@ -1,0 +1,35 @@
+{
+  "port": "Security-Main",
+  "name": "Sudo",
+  "version": "1.9.14+p3",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "Software allows a system administrator to delegate authority to give certain users the ability to run commands as root",
+  "website": "https://www.sudo.ws/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Linux-Pam",
+      "description": "Enable linux-pam support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Linux-Pam",
+          "version": "1.5.3",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}

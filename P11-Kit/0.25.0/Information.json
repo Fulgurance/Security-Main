@@ -1,0 +1,74 @@
+{
+  "port": "Security-Main",
+  "name": "P11-Kit",
+  "version": "0.25.0",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "Provides a way to load and enumerate PKCS#11 modules",
+  "website": "https://github.com/p11-glue/p11-kit",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Libtasn1",
+      "description": "Enable Libtasn1 support for trust",
+      "active": true,
+      "dependencies": [
+        {
+          "name": "Libtasn1",
+          "version": "4.19.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Make-Ca",
+      "description": "Enable make-ca support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Make-Ca",
+          "version": "1.12.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Libxslt",
+      "description": "Enable libxslt support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Libxslt",
+          "version": "1.1.38",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Nss",
+      "description": "Enable nss support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Nss",
+          "version": "3.92.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}

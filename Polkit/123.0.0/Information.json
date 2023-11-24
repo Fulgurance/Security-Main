@@ -1,0 +1,87 @@
+{
+  "port": "Security-Main",
+  "name": "Polkit",
+  "version": "123.0.0",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "Toolkit for defining and handling authorizations",
+  "website": "https://www.freedesktop.org/software/polkit",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "Glib",
+      "version": "2.76.4",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Duktape",
+      "description": "Enable duktape support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Duktape",
+          "version": "2.7.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Js",
+      "description": "Enable js support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Js",
+          "version": "102.13.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Gobject-Introspection",
+      "description": "Enable gobject-introspection",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Gobject-Introspection",
+          "version": "1.76.1",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Libxslt",
+      "description": "Enable libxslt support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Libxslt",
+          "version": "1.1.38",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Elogind",
+      "description": "Enable elogind support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Elogind",
+          "version": "252.9.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}

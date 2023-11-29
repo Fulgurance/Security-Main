@@ -1,0 +1,104 @@
+{
+  "port": "Security-Main",
+  "name": "Gnupg",
+  "version": "2.4.3",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "Complete and free implementation of the OpenPGP standard as defined by RFC4880",
+  "website": "https://gnupg.org/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "Libassuan",
+      "version": "2.5.6",
+      "options": []
+    },
+    {
+      "name": "Libgcrypt",
+      "version": "1.10.0",
+      "options": []
+    },
+    {
+      "name": "Libksba",
+      "version": "1.6.4",
+      "options": []
+    },
+    {
+      "name": "Npth",
+      "version": "1.6.0",
+      "options": []
+    },
+    {
+      "name": "Openldap",
+      "version": "2.6.6",
+      "options": []
+    },
+    {
+      "name": "Gnutls",
+      "version": "3.8.1",
+      "options": []
+    },
+    {
+      "name": "Pinentry",
+      "version": "1.2.1",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Curl",
+      "description": "Enable curl support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Curl",
+          "version": "8.2.1",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Fuse",
+      "description": "Enable fuse support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Fuse",
+          "version": "3.16.1",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Libusb",
+      "description": "Enable libusb support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Libusb",
+          "version": "1.0.26",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Sqlite",
+      "description": "Enable sqlite support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Sqlite",
+          "version": "3.42.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}

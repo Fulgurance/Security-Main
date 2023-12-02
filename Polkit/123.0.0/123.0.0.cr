@@ -8,14 +8,14 @@ class Target < ISM::Software
             fileReplaceTextAtLineNumber("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/src/polkitbackend/polkitbackendjsauthority.cpp"," { JS_Init"," { JS::DisableJitBackend(); JS_Init",59)
         end
 
-        runMesonCommand(["setup",@buildDirectoryName],mainWorkDirectoryPath)
+        runMesonCommand(["setup",@buildDirectoryNames[:mainBuild]],mainWorkDirectoryPath)
     end
 
     def configure
         super
 
         runMesonCommand([   "configure",
-                            @buildDirectoryName,
+                            @buildDirectoryNames[:mainBuild],
                             "--prefix=/usr",
                             "--buildtype=release",
                             "#{option("Elogind") ? "-Dsession_tracking=libelogind" : ""}",

@@ -2,7 +2,7 @@ class Target < ISM::Software
     
     def prepare
         @buildDirectory = true
-        @buildDirectoryName = "p11-build"
+        @buildDirectoryNames[:mainBuild] = "p11-build"
         super
 
         fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/p11-kit/modules.c","if (gi) {","if (gi) && gi != C_GetInterface {",386)
@@ -19,14 +19,14 @@ class Target < ISM::Software
         CODE
         fileAppendData("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",data)
 
-        runMesonCommand(["setup",@buildDirectoryName],mainWorkDirectoryPath)
+        runMesonCommand(["setup",@buildDirectoryNames[:mainBuild]],mainWorkDirectoryPath)
     end
 
     def configure
         super
 
         runMesonCommand([   "configure",
-                            @buildDirectoryName,
+                            @buildDirectoryNames[:mainBuild],
                             "--prefix=/usr",
                             "--buildtype=release",
                             "-Dtrust_paths=/etc/pki/anchors"],

@@ -35,6 +35,11 @@
       "name": "Libtool",
       "version": "2.4.7",
       "options": []
+    },
+    {
+      "name": "Libxcrypt",
+      "version": "4.4.36",
+      "options": []
     }
   ],
   "kernelDependencies": [],

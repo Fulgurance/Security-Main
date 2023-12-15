@@ -11,14 +11,14 @@
   "dependencies": [
     {
       "name": "SystemBase",
-      "version": "0.2.0",
+      "version": ">=0.2.0",
       "options": [
         "Pass3"
       ]
     },
     {
       "name": "Attr",
-      "version": "2.5.1",
+      "version": ">=2.5.1",
       "options": []
     }
   ],

@@ -11,37 +11,37 @@
   "dependencies": [
     {
       "name": "Libassuan",
-      "version": "2.5.6",
+      "version": ">=2.5.6",
       "options": []
     },
     {
       "name": "Libgcrypt",
-      "version": "1.10.2",
+      "version": ">=1.10.2",
       "options": []
     },
     {
       "name": "Libksba",
-      "version": "1.6.4",
+      "version": ">=1.6.4",
       "options": []
     },
     {
       "name": "Npth",
-      "version": "1.6.0",
+      "version": ">=1.6.0",
       "options": []
     },
     {
       "name": "Openldap",
-      "version": "2.6.6",
+      "version": ">=2.6.6",
       "options": []
     },
     {
       "name": "Gnutls",
-      "version": "3.8.1",
+      "version": ">=3.8.1",
       "options": []
     },
     {
       "name": "Pinentry",
-      "version": "1.2.1",
+      "version": ">=1.2.1",
       "options": []
     }
   ],
@@ -54,7 +54,7 @@
       "dependencies": [
         {
           "name": "Curl",
-          "version": "8.2.1",
+          "version": ">=8.2.1",
           "options": []
         }
       ],
@@ -67,7 +67,7 @@
       "dependencies": [
         {
           "name": "Fuse",
-          "version": "3.16.1",
+          "version": ">=3.16.1",
           "options": []
         }
       ],
@@ -80,7 +80,7 @@
       "dependencies": [
         {
           "name": "Libusb",
-          "version": "1.0.26",
+          "version": ">=1.0.26",
           "options": []
         }
       ],
@@ -93,7 +93,7 @@
       "dependencies": [
         {
           "name": "Sqlite",
-          "version": "3.42.0",
+          "version": ">=3.42.0",
           "options": []
         }
       ],

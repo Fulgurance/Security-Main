@@ -2,7 +2,7 @@ class Target < ISM::Software
     
     def prepare
         @buildDirectory = true
-        @buildDirectoryNames[:mainBuild] = "p11-build"
+        @buildDirectoryNames["MainBuild"] = "p11-build"
         super
         fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",20)
         fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",31)

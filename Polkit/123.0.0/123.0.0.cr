@@ -21,7 +21,7 @@ class Target < ISM::Software
                             "#{option("Elogind") ? "-Dsession_tracking=libelogind" : ""}",
                             "-Dauthfw=#{option("Linux-Pam") ? "pam" : "shadow"}",
                             "-Dintrospection=#{option("Gobject-Introspection") ? "true" : "false"}",
-                            "#{option("Js") ? "-Djs_engine=mozjs" : ""}"
+                            "#{option("Js") ? "-Djs_engine=mozjs" : ""}",
                             "-Dman=false",
                             "-Dexamples=false",
                             "-Dgtk_doc=false",

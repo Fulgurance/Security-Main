@@ -5,7 +5,7 @@ class Target < ISM::Software
         @buildDirectoryNames["MainBuild"] = "p11-build"
         super
 
-        fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/p11-kit/modules.c","if (gi) {","if (gi) && gi != C_GetInterface {",386)
+        fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/p11-kit/modules.c","(gi)","(gi && gi != C_GetInterface)",386)
 
         fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",20)
         fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",31)

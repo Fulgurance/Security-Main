@@ -13,23 +13,15 @@
       "name": "Glib",
       "version": "2.76.4",
       "options": []
+    },
+    {
+      "name": "Duktape",
+      "version": "2.7.0",
+      "options": []
     }
   ],
   "kernelDependencies": [],
   "options": [
-    {
-      "name": "Duktape",
-      "description": "Enable duktape support",
-      "active": false,
-      "dependencies": [
-        {
-          "name": "Duktape",
-          "version": "2.7.0",
-          "options": []
-        }
-      ],
-      "kernelDependencies": []
-    },
     {
       "name": "Js",
       "description": "Enable js support",

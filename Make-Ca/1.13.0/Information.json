@@ -1,0 +1,35 @@
+{
+  "port": "Security-Main",
+  "name": "Make-Ca",
+  "version": "1.13.0",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "Utility to deliver and manage a complete PKI configuration for workstations and servers using only standard Unix utilities",
+  "website": "https://github.com/djlucas/make-ca",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "P11-Kit",
+      "version": ">=0.25.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Nss",
+      "description": "Enable nss support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Nss",
+          "version": ">=3.92.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}

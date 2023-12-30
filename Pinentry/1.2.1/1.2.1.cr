@@ -10,6 +10,9 @@ class Target < ISM::Software
         super
 
         configureSource([   "--prefix=/usr",
+                            "--enable-inside-emacs=#{option("Emacs") ? "yes" : "no"}",
+                            "--enable-pinentry-qt=#{option("Qt") ? "yes" : "no"}",
+                            "--enable-pinentry-gtk2=#{option("Gtk+") ? "yes" : "no"}",
                             "--enable-pinentry-tty"],
                             buildDirectoryPath)
     end

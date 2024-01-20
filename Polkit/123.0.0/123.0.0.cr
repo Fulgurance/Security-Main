@@ -62,11 +62,4 @@ class Target < ISM::Software
         fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/polkit-1/rules.d/10-admin.rules",adminData)
     end
 
-    def install
-        super
-
-        runGroupAddCommand(["-fg","27","polkitd"])
-        runUserAddCommand(["-c","\"PolicyKit Daemon Owner\"","-d","/etc/polkit-1","-u","27","-g","polkitd","-s","/bin/false","polkitd"])
-    end
-
 end

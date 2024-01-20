@@ -18,6 +18,16 @@
       "name": "Duktape",
       "version": "2.7.0",
       "options": []
+    },
+    {
+      "name": "@SystemUsers-Main:Polkitd",
+      "version": ">=0.1.0",
+      "options": []
+    },
+    {
+      "name": "@SystemGroups-Main:Polkitd",
+      "version": ">=0.1.0",
+      "options": []
     }
   ],
   "kernelDependencies": [],

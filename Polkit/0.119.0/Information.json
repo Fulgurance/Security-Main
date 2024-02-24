@@ -71,5 +71,6 @@
   ],
   "uniqueDependencies": [],
   "uniqueOptions": [],
-  "selectedDependencies": []
+  "selectedDependencies": [],
+  "allowCodependencies": []
 }

@@ -18,14 +18,14 @@ class Target < ISM::Software
         /usr/sbin/make-ca -r
         CODE
         fileAppendData("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",data)
-
-        runMesonCommand(["setup",@buildDirectoryNames["MainBuild"]],mainWorkDirectoryPath)
     end
 
     def configure
         super
 
-        runMesonCommand([   "configure",
+        runMesonCommand([   "setup",
+                            "--reconfigure",
+                            "-Dauto_features=disabled",
                             @buildDirectoryNames["MainBuild"],
                             "--prefix=/usr",
                             "--buildtype=release",

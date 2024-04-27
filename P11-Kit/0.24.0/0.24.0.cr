@@ -19,7 +19,10 @@ class Target < ISM::Software
 
     def configure
         super
-        runMesonCommand([   "--prefix=/usr",
+        runMesonCommand([   "setup",
+                            "--reconfigure",
+                            "-Dauto_features=disabled",
+                            "--prefix=/usr",
                             "--buildtype=release",
                             "-Dtrust_paths=/etc/pki/anchors"],
                             buildDirectoryPath)

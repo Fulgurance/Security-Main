@@ -25,7 +25,6 @@ class Target < ISM::Software
 
         runMesonCommand([   "setup",
                             "--reconfigure",
-                            "-Dauto_features=disabled",
                             @buildDirectoryNames["MainBuild"],
                             "--prefix=/usr",
                             "--buildtype=release",

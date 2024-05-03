@@ -21,7 +21,6 @@ class Target < ISM::Software
         super
         runMesonCommand([   "setup",
                             "--reconfigure",
-                            "-Dauto_features=disabled",
                             "--prefix=/usr",
                             "--buildtype=release",
                             "-Dtrust_paths=/etc/pki/anchors"],

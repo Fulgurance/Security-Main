@@ -4,6 +4,7 @@ class Target < ISM::Software
         @buildDirectory = true
         @buildDirectoryNames["MainBuild"] = "p11-build"
         super
+
         fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",20)
         fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",31)
 
@@ -19,6 +20,7 @@ class Target < ISM::Software
 
     def configure
         super
+
         runMesonCommand([   "setup",
                             "--reconfigure",
                             "--prefix=/usr",
@@ -29,18 +31,17 @@ class Target < ISM::Software
 
     def build
         super
+
         runNinjaCommand(Array(String).new,buildDirectoryPath)
     end
     
     def prepareInstallation
         super
-        runNinjaCommand(["install"],buildDirectoryPath,{"DESTDIR" => "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}"})
-    end
 
-    def install
-        super
-        makeLink("/usr/libexec/p11-kit/trust-extract-compat","#{Ism.settings.rootPath}usr/bin/update-ca-certificates",:symbolicLinkByOverwrite)
-        makeLink("./pkcs11/p11-kit-trust.so","#{Ism.settings.rootPath}usr/lib/libnssckbi.so",:symbolicLinkByOverwrite)
+        runNinjaCommand(["install"],buildDirectoryPath,{"DESTDIR" => "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}"})
+
+        makeLink("/usr/libexec/p11-kit/trust-extract-compat","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/update-ca-certificates",:symbolicLinkByOverwrite)
+        makeLink("./pkcs11/p11-kit-trust.so","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/libnssckbi.so",:symbolicLinkByOverwrite)
     end
 
 end

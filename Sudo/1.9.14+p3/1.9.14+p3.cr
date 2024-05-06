@@ -52,8 +52,6 @@ class Target < ISM::Software
         Defaults env_keep += KF5_PREFIX
         CODE
         fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sudoers.d/kde",kdeData)
-
-        makeLink("libsudo_util.so.0.0.0","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/sudo/libsudo_util.so.0",:symbolicLinkByOverwrite)
     end
 
 end

@@ -2,16 +2,15 @@
   "port": "Security-Main",
   "name": "Sudo",
   "version": "1.9.14+p3",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Software allows a system administrator to delegate authority to give certain users the ability to run commands as root",
   "website": "https://www.sudo.ws/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
-      "version": "0.2.0",
+      "version": ">=0.2.0",
       "options": []
     }
   ],
@@ -23,8 +22,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Security-Main",
           "name": "Linux-Pam",
-          "version": "1.5.3",
+          "version": ">=1.5.3",
           "options": []
         }
       ],

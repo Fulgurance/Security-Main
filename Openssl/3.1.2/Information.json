@@ -2,16 +2,15 @@
   "port": "Security-Main",
   "name": "Openssl",
   "version": "3.1.2",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Full-featured toolkit for general-purpose cryptography and secure communication",
   "website": "https://www.openssl.org/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "BaseLibraries-Main",
       "name": "Zlib",
-      "version": "1.2.13",
+      "version": ">=1.2.13",
       "options": []
     }
   ],

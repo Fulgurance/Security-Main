@@ -2,19 +2,19 @@
   "port": "Security-Main",
   "name": "Pinentry",
   "version": "1.2.1",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Small collection of dialog programs that allow GnuPG to read passphrases and PIN numbers in a secure manner",
   "website": "https://www.gnupg.org/related_software/pinentry/index.html",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SecurityLibraries-Main",
       "name": "Libassuan",
       "version": ">=2.5.6",
       "options": []
     },
     {
+      "port": "SecurityLibraries-Main",
       "name": "Libgpg-Error",
       "version": ">=1.47.0",
       "options": []
@@ -28,6 +28,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "TextEditors-Main",
           "name": "Emacs",
           "version": ">=29.1.0",
           "options": []
@@ -41,6 +42,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "GraphicsLibraries-Main",
           "name": "Fltk",
           "version": ">=1.3.8",
           "options": []
@@ -54,6 +56,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "GraphicsLibraries-Main",
           "name": "Gtk+",
           "version": ">=2.24.33",
           "options": []
@@ -67,6 +70,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "KdeBase-Main",
           "name": "Kde-Frameworks",
           "version": ">=5.109.0",
           "options": []
@@ -80,6 +84,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "KdeSoftwares-Main",
           "name": "Kwayland",
           "version": ">=5.109.0",
           "options": []
@@ -93,6 +98,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "SecurityLibraries-Main",
           "name": "Libsecret",
           "version": ">=0.21.0",
           "options": []
@@ -106,6 +112,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "BaseLibraries-Main",
           "name": "Qt",
           "version": ">=5.15.10",
           "options": []

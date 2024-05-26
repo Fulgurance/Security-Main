@@ -2,26 +2,27 @@
   "port": "Security-Main",
   "name": "Cryptsetup",
   "version": "2.4.3",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Cryptsetup and LUKS open-source disk encryption",
   "website": "https://gitlab.com/cryptsetup/cryptsetup/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "BaseLibraries-Main",
       "name": "Json-C",
-      "version": "0.17.0",
+      "version": ">=0.17.0",
       "options": []
     },
     {
+      "port": "FileSystems-Main",
       "name": "Lvm2",
-      "version": "2.3.22",
+      "version": ">=2.3.22",
       "options": []
     },
     {
+      "port": "BaseLibraries-Main",
       "name": "Popt",
-      "version": "1.19.0",
+      "version": ">=1.19.0",
       "options": []
     }
   ],
@@ -37,6 +38,7 @@
       "active": true,
       "dependencies": [
         {
+          "port": "InitSystems-Main",
           "name": "Openrc",
           "version": ">=0.46.0",
           "options": []
@@ -50,8 +52,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "SecurityLibraries-Main",
           "name": "Libpwquality",
-          "version": "1.4.5",
+          "version": ">=1.4.5",
           "options": []
         }
       ],

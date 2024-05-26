@@ -2,43 +2,45 @@
   "port": "Security-Main",
   "name": "Shadow",
   "version": "4.13.0",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Utility for converting UNIX password files to the shadow password format, plus programs for managing user and group accounts",
   "website": "https://shadow-maint.github.io/shadow/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
-      "version": "0.2.0",
-      "options": [
-        "Pass3"
-      ]
+      "version": ">=0.2.0",
+      "options": ["Pass3"]
     },
     {
+      "port": "Security-Main",
       "name": "Acl",
-      "version": "2.3.1",
+      "version": ">=2.3.1",
       "options": []
     },
     {
+      "port": "Utilities-Main",
       "name": "Attr",
-      "version": "2.5.1",
+      "version": ">=2.5.1",
       "options": []
     },
     {
+      "port": "BaseLibraries-Main",
       "name": "Libcap",
-      "version": "2.69.0",
+      "version": ">=2.69.0",
       "options": []
     },
     {
+      "port": "BaseLibraries-Main",
       "name": "Libtool",
-      "version": "2.4.7",
+      "version": ">=2.4.7",
       "options": []
     },
     {
+      "port": "SecurityLibraries-Main",
       "name": "Libxcrypt",
-      "version": "4.4.36",
+      "version": ">=4.4.36",
       "options": []
     }
   ],
@@ -50,8 +52,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "SecurityLibraries-Main",
           "name": "Cracklib",
-          "version": "2.9.11",
+          "version": ">=2.9.11",
           "options": []
         }
       ],
@@ -63,8 +66,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Security-Main",
           "name": "Linux-Pam",
-          "version": "1.5.3",
+          "version": ">=1.5.3",
           "options": []
         }
       ],

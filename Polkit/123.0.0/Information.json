@@ -2,30 +2,32 @@
   "port": "Security-Main",
   "name": "Polkit",
   "version": "123.0.0",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Toolkit for defining and handling authorizations",
   "website": "https://www.freedesktop.org/software/polkit",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "BaseLibraries-Main",
       "name": "Glib",
-      "version": "2.76.4",
+      "version": ">=2.76.4",
       "options": []
     },
     {
+      "port": "BaseLibraries-Main",
       "name": "Duktape",
       "version": "2.7.0",
       "options": []
     },
     {
-      "name": "@SystemUsers-Main:Polkitd",
+      "port": "SystemUsers-Main",
+      "name": "Polkitd",
       "version": ">=0.1.0",
       "options": []
     },
     {
-      "name": "@SystemGroups-Main:Polkitd",
+      "port": "SystemGroups-Main",
+      "name": "Polkitd",
       "version": ">=0.1.0",
       "options": []
     }
@@ -38,8 +40,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "ProgrammingLanguages-Main",
           "name": "Js",
-          "version": "102.13.0",
+          "version": ">=102.13.0",
           "options": []
         }
       ],
@@ -51,8 +54,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "BaseLibraries-Main",
           "name": "Gobject-Introspection",
-          "version": "1.76.1",
+          "version": ">=1.76.1",
           "options": []
         }
       ],
@@ -64,8 +68,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "BaseLibraries-Main",
           "name": "Libxslt",
-          "version": "1.1.38",
+          "version": ">=1.1.38",
           "options": []
         }
       ],
@@ -77,8 +82,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Utilities-Main",
           "name": "Elogind",
-          "version": "252.9.0",
+          "version": ">=252.9.0",
           "options": []
         }
       ],

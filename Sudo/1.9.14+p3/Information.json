@@ -19,7 +19,7 @@
     {
       "name": "Linux-Pam",
       "description": "Enable linux-pam support",
-      "active": false,
+      "active": true,
       "dependencies": [
         {
           "port": "Security-Main",

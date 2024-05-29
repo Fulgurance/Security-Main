@@ -79,7 +79,7 @@
     {
       "name": "Elogind",
       "description": "Enable elogind support",
-      "active": false,
+      "active": true,
       "dependencies": [
         {
           "port": "Utilities-Main",
@@ -94,5 +94,5 @@
   "uniqueDependencies": [],
   "uniqueOptions": [],
   "selectedDependencies": [],
-  "allowCodependencies": []
+  "allowCodependencies": ["@Utilities-Main:Elogind"]
 }

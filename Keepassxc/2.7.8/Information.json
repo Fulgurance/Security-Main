@@ -12,6 +12,12 @@
       "name": "Qt",
       "version": ">=5.15.10",
       "options": []
+    },
+    {
+      "port": "SecurityLibraries-Main",
+      "name": "Botan",
+      "version": ">=3.4.0",
+      "options": []
     }
   ],
   "kernelDependencies": [],

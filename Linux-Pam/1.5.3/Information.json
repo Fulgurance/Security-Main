@@ -76,5 +76,5 @@
   "uniqueDependencies": [],
   "uniqueOptions": [],
   "selectedDependencies": [],
-  "allowCodependencies": []
+  "allowCodependencies": ["@SecurityLibraries-Main:Libpwquality"]
 }

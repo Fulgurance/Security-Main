@@ -44,7 +44,7 @@
       "options": []
     },
     {
-      "port": "SecurityMain-Main",
+      "port": "Security-Main",
       "name": "Pinentry",
       "version": ">=1.2.1",
       "options": []

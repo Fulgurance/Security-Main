@@ -9,12 +9,6 @@
   "dependencies": [
     {
       "port": "BaseLibraries-Main",
-      "name": "Zlib",
-      "version": ">=1.2.13",
-      "options": ["Minizip"]
-    },
-    {
-      "port": "BaseLibraries-Main",
       "name": "Qt",
       "version": ">=5.15.10",
       "options": []

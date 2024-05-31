@@ -21,7 +21,7 @@ class Target < ISM::Software
         configureSource([   "--prefix=/usr",
                             "--disable-static",
                             "--docdir=/usr/share/doc/acl-2.3.1"],
-                            path: buildDirectoryPath(entry: "mainBuild"))
+                            path: buildDirectoryPath(entry: "MainBuild"))
 
         if option("32Bits")
             configureSource([   "--host=i686-#{Ism.settings.targetName}-linux-gnu",
@@ -63,7 +63,7 @@ class Target < ISM::Software
 
         makeSource( ["DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}",
                     "install"],
-                    path: buildDirectoryPath(entry: "mainBuild"))
+                    path: buildDirectoryPath(entry: "MainBuild"))
 
         if option("32Bits")
             makeDirectory("#{buildDirectoryPath(false, entry: "32Bits")}/32Bits")

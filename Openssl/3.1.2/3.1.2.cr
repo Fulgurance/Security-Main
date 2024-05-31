@@ -24,7 +24,7 @@ class Target < ISM::Software
                     "--libdir=lib",
                     "shared",
                     "zlib-dynamic"],
-                    path: buildDirectoryPath(entry: "mainBuild"))
+                    path: buildDirectoryPath(entry: "MainBuild"))
 
         if option("32Bits")
             runScript(  "config",
@@ -34,7 +34,7 @@ class Target < ISM::Software
                         "shared",
                         "zlib-dynamic",
                         "linux-x86"],
-                        path: buildDirectoryPath(entry: "mainBuild"))
+                        path: buildDirectoryPath(entry: "MainBuild"))
         end
 
         if option("x32Bits")
@@ -45,14 +45,14 @@ class Target < ISM::Software
                         "shared",
                         "zlib-dynamic",
                         "linux-x32"],
-                        path: buildDirectoryPath(entry: "mainBuild"))
+                        path: buildDirectoryPath(entry: "MainBuild"))
         end
     end
     
     def build
         super
 
-        makeSource(path: buildDirectoryPath(entry: "mainBuild"))
+        makeSource(path: buildDirectoryPath(entry: "MainBuild"))
 
         if option("32Bits")
             makeSource(path: buildDirectoryPath(entry: "32Bits"))
@@ -72,7 +72,7 @@ class Target < ISM::Software
 
         makeSource( ["MANSUFFIX=ssl","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}",
                     "install"],
-                    path: buildDirectoryPath(entry: "mainBuild"))
+                    path: buildDirectoryPath(entry: "MainBuild"))
 
         moveFile(   "#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/usr/share/doc/openssl",
                     "#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/usr/share/doc/openssl-3.1.2")

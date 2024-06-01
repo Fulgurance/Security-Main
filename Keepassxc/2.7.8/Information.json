@@ -24,6 +24,12 @@
       "name": "Botan",
       "version": ">=3.4.0",
       "options": []
+    },
+    {
+      "port": "Security-Main",
+      "name": "Argon2",
+      "version": ">=0.0.0-20190702",
+      "options": []
     }
   ],
   "kernelDependencies": [],

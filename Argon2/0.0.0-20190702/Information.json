@@ -1,0 +1,23 @@
+{
+  "port": "Security-Main",
+  "name": "Argon2",
+  "version": "0.0.0-20190702",
+  "architectures": ["x86_64"],
+  "description": "The password hash Argon2, winner of PHC",
+  "website": "https://github.com/P-H-C/phc-winner-argon2",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "SystemBase-Main",
+      "name": "SystemBase",
+      "version": ">=0.2.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}

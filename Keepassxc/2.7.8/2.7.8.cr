@@ -12,6 +12,7 @@ class Target < ISM::Software
                             "-DCMAKE_BUILD_TYPE=Release",
                             "-DBUILD_TESTING=OFF",
                             "-DWITH_XC_DOCS=OFF",
+                            "-DWITH_TESTS=OFF"
                             ".."],
                             buildDirectoryPath)
     end

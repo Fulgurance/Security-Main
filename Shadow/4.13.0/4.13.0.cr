@@ -228,7 +228,10 @@ class Target < ISM::Software
 
         runPwconvCommand
         runGrpconvCommand
-        setPermissions("#{Ism.settings.rootPath}etc/login.defs",0o644)
+
+
+        runChmodCommand(["0644","/etc/login.defs"])
+
         runUserAddCommand(["-D","--gid","999"])
 
         if option("Linux-Pam")

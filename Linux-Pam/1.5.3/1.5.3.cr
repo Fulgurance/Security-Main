@@ -75,7 +75,7 @@ class Target < ISM::Software
     def install
         super
 
-        setPermissions("#{Ism.settings.rootPath}usr/sbin/unix_chkpwd",0o4755)
+        runChmodCommand(["04755","/usr/sbin/unix_chkpwd"])
     end
 
 end

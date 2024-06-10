@@ -11,7 +11,8 @@ class Target < ISM::Software
     def install
         super
 
-        setPermissions("#{Ism.settings.rootPath}etc/ssl/local",0o755)
+        runChmodCommand(["0755","/etc/ssl/local"])
+
         softwareIsInstalled("Make-Ca") ? runMakeCaCommand(["-r"]) : runMakeCaCommand(["-g"])
     end
 

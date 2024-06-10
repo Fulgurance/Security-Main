@@ -18,7 +18,7 @@ class Target < ISM::Software
     def configure
         super
 
-        runScript(  "config",
+        runFile(  "config",
                     ["--prefix=/usr",
                     "--openssldir=/etc/ssl",
                     "--libdir=lib",
@@ -27,7 +27,7 @@ class Target < ISM::Software
                     path: buildDirectoryPath(entry: "MainBuild"))
 
         if option("32Bits")
-            runScript(  "config",
+            runFile(  "config",
                         ["--prefix=/usr",
                         "--openssldir=/etc/ssl",
                         "--libdir=lib32",
@@ -38,7 +38,7 @@ class Target < ISM::Software
         end
 
         if option("x32Bits")
-            runScript(  "config",
+            runFile(  "config",
                         ["--prefix=/usr",
                         "--openssldir=/etc/ssl",
                         "--libdir=libx32",

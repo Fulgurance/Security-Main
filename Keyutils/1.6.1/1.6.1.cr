@@ -3,7 +3,7 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileReplaceText("#{buildDirectoryPath(false)}/Makefile","$(LIBDIR)/$(PKGCONFIG_DIR)","/usr/lib/pkgconfig")
+        fileReplaceText("#{buildDirectoryPath}/Makefile","$(LIBDIR)/$(PKGCONFIG_DIR)","/usr/lib/pkgconfig")
     end
 
     def build

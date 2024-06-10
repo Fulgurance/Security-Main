@@ -19,7 +19,7 @@ class Target < ISM::Software
 
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/conf.d/")
+        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/conf.d/")
 
         if option("Openrc")
             dmcryptData = <<-CODE
@@ -37,9 +37,9 @@ class Target < ISM::Software
             dmcrypt_retries=5
 
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/conf.d/dmcrypt",dmcryptData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/conf.d/dmcrypt",dmcryptData)
 
-            prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/Dmcrypt-Init.d","dmcrypt")
+            prepareOpenrcServiceInstallation("#{workDirectoryPath}/Dmcrypt-Init.d","dmcrypt")
         end
     end
 

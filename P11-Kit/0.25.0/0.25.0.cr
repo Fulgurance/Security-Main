@@ -5,10 +5,10 @@ class Target < ISM::Software
         @buildDirectoryNames["MainBuild"] = "p11-build"
         super
 
-        fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/p11-kit/modules.c","(gi)","(gi && gi != C_GetInterface)",386)
+        fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath}/p11-kit/modules.c","(gi)","(gi && gi != C_GetInterface)",386)
 
-        fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",20)
-        fileDeleteLine("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",31)
+        fileDeleteLine("#{mainWorkDirectoryPath}trust/trust-extract-compat",20)
+        fileDeleteLine("#{mainWorkDirectoryPath}trust/trust-extract-compat",31)
 
         data = <<-CODE
         # Copy existing anchor modifications to /etc/ssl/local
@@ -17,7 +17,7 @@ class Target < ISM::Software
         # Update trust stores
         /usr/sbin/make-ca -r
         CODE
-        fileAppendData("#{mainWorkDirectoryPath(false)}trust/trust-extract-compat",data)
+        fileAppendData("#{mainWorkDirectoryPath}trust/trust-extract-compat",data)
     end
 
     def configure
@@ -43,8 +43,8 @@ class Target < ISM::Software
 
         runNinjaCommand(["install"],buildDirectoryPath,{"DESTDIR" => "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}"})
 
-        makeLink("/usr/libexec/p11-kit/trust-extract-compat","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/update-ca-certificates",:symbolicLinkByOverwrite)
-        makeLink("./pkcs11/p11-kit-trust.so","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/libnssckbi.so",:symbolicLinkByOverwrite)
+        makeLink("/usr/libexec/p11-kit/trust-extract-compat","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/update-ca-certificates",:symbolicLinkByOverwrite)
+        makeLink("./pkcs11/p11-kit-trust.so","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/libnssckbi.so",:symbolicLinkByOverwrite)
     end
 
 end

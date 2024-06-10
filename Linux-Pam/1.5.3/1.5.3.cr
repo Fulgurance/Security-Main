@@ -3,7 +3,7 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileDeleteLine("#{buildDirectoryPath(false)}modules/pam_namespace/Makefile.am",42)
+        fileDeleteLine("#{buildDirectoryPath}modules/pam_namespace/Makefile.am",42)
 
         runAutoreconfCommand(path: buildDirectoryPath)
     end
@@ -31,28 +31,28 @@ class Target < ISM::Software
 
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d")
+        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")
 
         if !softwareIsInstalled("Linux-Pam")
             systemAccountData = <<-CODE
             account   required    pam_unix.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/system-account",systemAccountData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/system-account",systemAccountData)
 
             systemAuthData = <<-CODE
             auth      required    pam_unix.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/system-auth",systemAuthData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/system-auth",systemAuthData)
 
             systemSessionData = <<-CODE
             session   required    pam_unix.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/system-session",systemSessionData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/system-session",systemSessionData)
 
             systemPasswordData = <<-CODE
             password  required    pam_unix.so       sha512 shadow try_first_pass
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/system-password",systemPasswordData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/system-password",systemPasswordData)
 
             if option("Libpwquality")
 
@@ -66,7 +66,7 @@ class Target < ISM::Software
                 session     required        pam_warn.so
                 session     required        pam_deny.so
                 CODE
-                fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/other",otherData)
+                fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/other",otherData)
 
             end
         end

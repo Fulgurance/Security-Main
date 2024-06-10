@@ -3,17 +3,17 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileReplaceText("#{buildDirectoryPath(false)}/src/Makefile.in","groups$(EXEEXT) ","")
-        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","groups.1 "," ")
-        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","getspnam.3 "," ")
-        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath(false)}/man","Makefile.in","passwd.5 "," ")
-        fileReplaceText("#{buildDirectoryPath(false)}/etc/login.defs","/var/spool/mail","/var/mail")
-        fileReplaceText("#{buildDirectoryPath(false)}/etc/login.defs","PATH=/sbin:/bin:/usr/sbin:/usr/bin","PATH=/usr/sbin:/usr/bin")
-        fileReplaceText("#{buildDirectoryPath(false)}/etc/login.defs","PATH=/bin:/usr/sbin","PATH=/usr/bin")
-        fileReplaceText("#{buildDirectoryPath(false)}/etc/login.defs","#ENCRYPT_METHOD DES","ENCRYPT_METHOD SHA512")
+        fileReplaceText("#{buildDirectoryPath}/src/Makefile.in","groups$(EXEEXT) ","")
+        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath}/man","Makefile.in","groups.1 "," ")
+        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath}/man","Makefile.in","getspnam.3 "," ")
+        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath}/man","Makefile.in","passwd.5 "," ")
+        fileReplaceText("#{buildDirectoryPath}/etc/login.defs","/var/spool/mail","/var/mail")
+        fileReplaceText("#{buildDirectoryPath}/etc/login.defs","PATH=/sbin:/bin:/usr/sbin:/usr/bin","PATH=/usr/sbin:/usr/bin")
+        fileReplaceText("#{buildDirectoryPath}/etc/login.defs","PATH=/bin:/usr/sbin","PATH=/usr/bin")
+        fileReplaceText("#{buildDirectoryPath}/etc/login.defs","#ENCRYPT_METHOD DES","ENCRYPT_METHOD SHA512")
 
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/usr/bin/")
-        generateEmptyFile("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/usr/bin/passwd")
+        makeDirectory("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/bin/")
+        generateEmptyFile("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/bin/passwd")
 
         if !File.exists?("#{Ism.settings.rootPath}/usr/bin/passwd")
             generateEmptyFile("#{Ism.settings.rootPath}/usr/bin/passwd")
@@ -42,13 +42,13 @@ class Target < ISM::Software
 
         makeSource(["exec_prefix=/usr","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
         makeSource(["-C","man","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install-man"],buildDirectoryPath)
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/etc/default")
+        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/etc/default")
 
         useraddData = <<-CODE
         GROUP=1000
         CREATE_MAIL_SPOOL=no
         CODE
-        fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/default/useradd",useraddData)
+        fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/default/useradd",useraddData)
 
         loginDefsOptions = ["FAIL_DELAY",
                             "FAILLOG_ENAB",
@@ -69,7 +69,7 @@ class Target < ISM::Software
 
         if option("Linux-Pam")
             loginDefsOptions.each do |loginOption|
-                fileReplaceText("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/login.defs","##{loginOption}","#{loginOption}")
+                fileReplaceText("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/login.defs","##{loginOption}","#{loginOption}")
             end
 
             loginData = <<-CODE
@@ -83,12 +83,12 @@ class Target < ISM::Software
             session   include     system-session
             password  include     system-password
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/login",loginData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/login",loginData)
 
             passwdData = <<-CODE
             password  include     system-password
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/passwd",passwdData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/passwd",passwdData)
 
             suData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -98,7 +98,7 @@ class Target < ISM::Software
             session   required    pam_env.so
             session   include     system-session
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/su",suData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/su",suData)
 
             chageData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -107,7 +107,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/chage",chageData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/chage",chageData)
 
             chfnData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -116,7 +116,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/chfn",chfnData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/chfn",chfnData)
 
             chgpasswdData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -125,7 +125,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/chgpasswd",chgpasswdData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/chgpasswd",chgpasswdData)
 
             chpasswdData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -134,7 +134,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/chpasswd",chpasswdData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/chpasswd",chpasswdData)
 
             chshData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -143,7 +143,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/chsh",chshData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/chsh",chshData)
 
             groupaddData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -152,7 +152,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/groupadd",groupaddData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/groupadd",groupaddData)
 
             groupdelData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -161,7 +161,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/groupdel",groupdelData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/groupdel",groupdelData)
 
             groupmemsData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -170,7 +170,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/groupmems",groupmemsData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/groupmems",groupmemsData)
 
             groupmodData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -179,7 +179,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/groupmod",groupmodData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/groupmod",groupmodData)
 
             newusersData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -188,7 +188,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/newusers",newusersData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/newusers",newusersData)
 
             useraddData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -197,7 +197,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/useradd",useraddData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/useradd",useraddData)
 
             userdelData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -206,7 +206,7 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/userdel",userdelData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/userdel",userdelData)
 
             usermodData = <<-CODE
             auth      sufficient  pam_rootok.so
@@ -215,10 +215,10 @@ class Target < ISM::Software
             session   include     system-session
             password  required    pam_permit.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/usermod",usermodData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/usermod",usermodData)
         else
             loginDefsOptions.each do |loginOption|
-                fileReplaceText("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/login.defs","#{loginOption}","##{loginOption}")
+                fileReplaceText("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/login.defs","#{loginOption}","##{loginOption}")
             end
         end
     end

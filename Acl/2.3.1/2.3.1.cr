@@ -24,7 +24,7 @@ class Target < ISM::Software
                             path: buildDirectoryPath(entry: "MainBuild"))
 
         if option("32Bits")
-            configureSource([   "--host=i686-#{Ism.settings.targetName}-linux-gnu",
+            configureSource([   "--host=i686-#{Ism.settings.systemTargetName}-linux-gnu",
                                 "--prefix=/usr",
                                 "--libdir=/usr/lib32",
                                 "--disable-static",
@@ -34,7 +34,7 @@ class Target < ISM::Software
         end
 
         if option("x32Bits")
-            configureSource([   "--host=#{Ism.settings.target}x32",
+            configureSource([   "--host=#{Ism.settings.systemTarget}x32",
                                 "--prefix=/usr",
                                 "--libdir=/usr/libx32",
                                 "--disable-static",

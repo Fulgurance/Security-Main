@@ -3,7 +3,8 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/etc/ssl/local")
     end
@@ -11,9 +12,9 @@ class Target < ISM::Software
     def install
         super
 
-        runChmodCommand(["0755","/etc/ssl/local"])
+        runChmodCommand("0755 /etc/ssl/local")
 
-        softwareIsInstalled("Make-Ca") ? runMakeCaCommand(["-r"]) : runMakeCaCommand(["-g"])
+        softwareIsInstalled("Make-Ca") ? runMakeCaCommand("-r") : runMakeCaCommand("-g")
     end
 
 end

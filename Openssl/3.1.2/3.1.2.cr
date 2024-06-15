@@ -18,34 +18,34 @@ class Target < ISM::Software
     def configure
         super
 
-        runFile(  "config",
-                    ["--prefix=/usr",
-                    "--openssldir=/etc/ssl",
-                    "--libdir=lib",
-                    "shared",
-                    "zlib-dynamic"],
-                    path: buildDirectoryPath(entry: "MainBuild"))
+        runFile(file:       "config",
+                arguments:  "--prefix=/usr          \
+                            --openssldir=/etc/ssl   \
+                            --libdir=lib            \
+                            shared                  \
+                            zlib-dynamic",
+                path:       buildDirectoryPath(entry: "MainBuild"))
 
         if option("32Bits")
-            runFile(  "config",
-                        ["--prefix=/usr",
-                        "--openssldir=/etc/ssl",
-                        "--libdir=lib32",
-                        "shared",
-                        "zlib-dynamic",
-                        "linux-x86"],
-                        path: buildDirectoryPath(entry: "MainBuild"))
+            runFile(file:   "config",
+                    arguments:  "--prefix=/usr          \
+                                --openssldir=/etc/ssl   \
+                                --libdir=lib32          \
+                                shared                  \
+                                zlib-dynamic            \
+                                linux-x86",
+                    path:       buildDirectoryPath(entry: "MainBuild"))
         end
 
         if option("x32Bits")
-            runFile(  "config",
-                        ["--prefix=/usr",
-                        "--openssldir=/etc/ssl",
-                        "--libdir=libx32",
-                        "shared",
-                        "zlib-dynamic",
-                        "linux-x32"],
-                        path: buildDirectoryPath(entry: "MainBuild"))
+            runFile(file:       "config",
+                    arguments:  "--prefix=/usr          \
+                                --openssldir=/etc/ssl   \
+                                --libdir=libx32         \
+                                shared                  \
+                                zlib-dynamic            \
+                                linux-x32",
+                    path:       buildDirectoryPath(entry: "MainBuild"))
         end
     end
     
@@ -66,13 +66,12 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        fileReplaceText("#{buildDirectoryPath}/Makefile",
-                        "INSTALL_LIBS=libcrypto.a libssl.a",
-                        "INSTALL_LIBS=")
+        fileReplaceText(path:       "#{buildDirectoryPath}/Makefile",
+                        text:       "INSTALL_LIBS=libcrypto.a libssl.a",
+                        newText:    "INSTALL_LIBS=")
 
-        makeSource( ["MANSUFFIX=ssl","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}",
-                    "install"],
-                    path: buildDirectoryPath(entry: "MainBuild"))
+        makeSource( arguments:  "MANSUFFIX=ssl DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath(entry: "MainBuild"))
 
         moveFile(   "#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/doc/openssl",
                     "#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/doc/openssl-3.1.2")
@@ -81,9 +80,8 @@ class Target < ISM::Software
             makeDirectory("#{buildDirectoryPath(entry: "32Bits")}/32Bits")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr")
 
-            makeSource( ["DESTDIR=#{buildDirectoryPath(entry: "32Bits")}/32Bits",
-                        "install"],
-                        path: buildDirectoryPath(entry: "32Bits"))
+            makeSource( arguments:  "DESTDIR=#{buildDirectoryPath(entry: "32Bits")}/32Bits install",
+                        path:       buildDirectoryPath(entry: "32Bits"))
 
             copyDirectory(  "#{buildDirectoryPath(entry: "32Bits")}/32Bits/usr/lib32",
                             "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib32")
@@ -93,9 +91,8 @@ class Target < ISM::Software
             makeDirectory("#{buildDirectoryPath(entry: "x32Bits")}/x32Bits")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr")
 
-            makeSource( ["DESTDIR=#{buildDirectoryPath(entry: "x32Bits")}/x32Bits",
-                        "install"],
-                        path: buildDirectoryPath(entry: "x32Bits"))
+            makeSource( arguments:  "DESTDIR=#{buildDirectoryPath(entry: "x32Bits")}/x32Bits install",
+                        path:       buildDirectoryPath(entry: "x32Bits"))
 
             copyDirectory(  "#{buildDirectoryPath(entry: "x32Bits")}/x32Bits/usr/libx32",
                             "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/libx32")

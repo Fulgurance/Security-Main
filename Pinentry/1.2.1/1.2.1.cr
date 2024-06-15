@@ -9,12 +9,12 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--enable-inside-emacs=#{option("Emacs") ? "yes" : "no"}",
-                            "--enable-pinentry-qt=#{option("Qt") ? "yes" : "no"}",
-                            "--enable-pinentry-gtk2=#{option("Gtk+") ? "yes" : "no"}",
-                            "--enable-pinentry-tty"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr                                          \
+                                    --enable-inside-emacs=#{option("Emacs") ? "yes" : "no"} \
+                                    --enable-pinentry-qt=#{option("Qt") ? "yes" : "no"}     \
+                                    --enable-pinentry-gtk2=#{option("Gtk+") ? "yes" : "no"} \
+                                    --enable-pinentry-tty",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -26,7 +26,8 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
     end
 
 end

@@ -3,14 +3,39 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileReplaceText("#{buildDirectoryPath}/src/Makefile.in","groups$(EXEEXT) ","")
-        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath}/man","Makefile.in","groups.1 "," ")
-        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath}/man","Makefile.in","getspnam.3 "," ")
-        replaceTextAllFilesRecursivelyNamed("#{buildDirectoryPath}/man","Makefile.in","passwd.5 "," ")
-        fileReplaceText("#{buildDirectoryPath}/etc/login.defs","/var/spool/mail","/var/mail")
-        fileReplaceText("#{buildDirectoryPath}/etc/login.defs","PATH=/sbin:/bin:/usr/sbin:/usr/bin","PATH=/usr/sbin:/usr/bin")
-        fileReplaceText("#{buildDirectoryPath}/etc/login.defs","PATH=/bin:/usr/sbin","PATH=/usr/bin")
-        fileReplaceText("#{buildDirectoryPath}/etc/login.defs","#ENCRYPT_METHOD DES","ENCRYPT_METHOD SHA512")
+        fileReplaceText(path:       "#{buildDirectoryPath}/src/Makefile.in",
+                        text:       "groups$(EXEEXT) ",
+                        newText:    "")
+
+        replaceTextAllFilesRecursivelyNamed(path:       "#{buildDirectoryPath}/man",
+                                            text:       "Makefile.in","groups.1 ",
+                                            newText:    " ")
+
+        replaceTextAllFilesRecursivelyNamed(path:       "#{buildDirectoryPath}/man",
+                                            filename:   "Makefile.in",
+                                            text:       "getspnam.3 ",
+                                            newText:    " ")
+
+        replaceTextAllFilesRecursivelyNamed(path:       "#{buildDirectoryPath}/man",
+                                            filename:   "Makefile.in",
+                                            text:       "passwd.5 ",
+                                            newText:    " ")
+
+        fileReplaceText(path:       "#{buildDirectoryPath}/etc/login.defs",
+                        text:       "/var/spool/mail",
+                        newText:    "/var/mail")
+
+        fileReplaceText(path:       "#{buildDirectoryPath}/etc/login.defs",
+                        text:       "PATH=/sbin:/bin:/usr/sbin:/usr/bin",
+                        newText:    "PATH=/usr/sbin:/usr/bin")
+
+        fileReplaceText(path:       "#{buildDirectoryPath}/etc/login.defs",
+                        text:       "PATH=/bin:/usr/sbin",
+                        newText:    "PATH=/usr/bin")
+
+        fileReplaceText(path:       "#{buildDirectoryPath}/etc/login.defs",
+                        text:       "#ENCRYPT_METHOD DES",
+                        newText:    "ENCRYPT_METHOD SHA512")
 
         makeDirectory("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/bin/")
         generateEmptyFile("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/bin/passwd")
@@ -23,12 +48,12 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--sysconfdir=/etc",
-                            "--with-group-name-max-length=32",
-                            "--disable-static",
-                            option("Cracklib") ? "--with-libcrack" : "--without-libcrack",
-                            option("Linux-Pam") ? "--with-libpam" : "--without-libpam"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--sysconfdir=/etc                                                  \
+                                    --with-group-name-max-length=32                                     \
+                                    --disable-static                                                    \
+                                    #{option("Cracklib") ? "--with-libcrack" : "--without-libcrack"}    \
+                                    #{option("Linux-Pam") ? "--with-libpam" : "--without-libpam"}",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -40,8 +65,12 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["exec_prefix=/usr","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
-        makeSource(["-C","man","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install-man"],buildDirectoryPath)
+        makeSource( arguments:  "exec_prefix=/usr DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
+
+        makeSource( arguments:  "-C man DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath} install-man",
+                    path:       buildDirectoryPath)
+
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/etc/default")
 
         useraddData = <<-CODE
@@ -69,7 +98,9 @@ class Target < ISM::Software
 
         if option("Linux-Pam")
             loginDefsOptions.each do |loginOption|
-                fileReplaceText("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/login.defs","##{loginOption}","#{loginOption}")
+                fileReplaceText(path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/login.defs",
+                                text:       "##{loginOption}",
+                                newText:    "#{loginOption}")
             end
 
             loginData = <<-CODE
@@ -218,7 +249,9 @@ class Target < ISM::Software
             fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/usermod",usermodData)
         else
             loginDefsOptions.each do |loginOption|
-                fileReplaceText("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/login.defs","#{loginOption}","##{loginOption}")
+                fileReplaceText(path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/login.defs",
+                                text:       "#{loginOption}",
+                                newText:    "##{loginOption}")
             end
         end
     end
@@ -229,24 +262,27 @@ class Target < ISM::Software
         runPwconvCommand
         runGrpconvCommand
 
+        runChmodCommand("0644 /etc/login.defs")
 
-        runChmodCommand(["0644","/etc/login.defs"])
-
-        runUserAddCommand(["-D","--gid","999"])
+        runUserAddCommand("-D --gid 999")
 
         if option("Linux-Pam")
             if File.exists?("#{Ism.settings.rootPath}etc/login.access")
-                moveFile("#{Ism.settings.rootPath}etc/login.access","#{Ism.settings.rootPath}etc/login.access.NOUSE")
+                moveFile(   "#{Ism.settings.rootPath}etc/login.access",
+                            "#{Ism.settings.rootPath}etc/login.access.NOUSE")
             end
             if File.exists?("#{Ism.settings.rootPath}etc/limits")
-                moveFile("#{Ism.settings.rootPath}etc/limits","#{Ism.settings.rootPath}etc/limits.NOUSE")
+                moveFile(   "#{Ism.settings.rootPath}etc/limits",
+                            "#{Ism.settings.rootPath}etc/limits.NOUSE")
             end
         else
             if File.exists?("#{Ism.settings.rootPath}etc/login.access.NOUSE")
-                moveFile("#{Ism.settings.rootPath}etc/login.access.NOUSE","#{Ism.settings.rootPath}etc/login.access")
+                moveFile(   "#{Ism.settings.rootPath}etc/login.access.NOUSE",
+                            "#{Ism.settings.rootPath}etc/login.access")
             end
             if File.exists?("#{Ism.settings.rootPath}etc/limits.NOUSE")
-                moveFile("#{Ism.settings.rootPath}etc/limits.NOUSE","#{Ism.settings.rootPath}etc/limits")
+                moveFile(   "#{Ism.settings.rootPath}etc/limits.NOUSE",
+                            "#{Ism.settings.rootPath}etc/limits")
             end
         end
     end

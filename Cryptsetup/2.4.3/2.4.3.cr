@@ -3,9 +3,9 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--disable-ssh-token"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr  \
+                                    --disable-ssh-token",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -17,7 +17,8 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/conf.d/")
 
@@ -39,7 +40,8 @@ class Target < ISM::Software
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/conf.d/dmcrypt",dmcryptData)
 
-            prepareOpenrcServiceInstallation("#{workDirectoryPath}/Dmcrypt-Init.d","dmcrypt")
+            prepareOpenrcServiceInstallation(   path:   "#{workDirectoryPath}/Dmcrypt-Init.d",
+                                                name:   "dmcrypt")
         end
     end
 

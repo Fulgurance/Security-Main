@@ -5,7 +5,10 @@ class Target < ISM::Software
         @buildDirectoryNames["MainBuild"] = "p11-build"
         super
 
-        fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath}/p11-kit/modules.c","(gi)","(gi && gi != C_GetInterface)",386)
+        fileReplaceTextAtLineNumber(path:       "#{mainWorkDirectoryPath}/p11-kit/modules.c",
+                                    text:       "(gi)",
+                                    newText:    "(gi && gi != C_GetInterface)",
+                                    lineNumber: 386)
 
         fileDeleteLine("#{mainWorkDirectoryPath}trust/trust-extract-compat",20)
         fileDeleteLine("#{mainWorkDirectoryPath}trust/trust-extract-compat",31)
@@ -23,13 +26,13 @@ class Target < ISM::Software
     def configure
         super
 
-        runMesonCommand([   "setup",
-                            "--reconfigure",
-                            @buildDirectoryNames["MainBuild"],
-                            "--prefix=/usr",
-                            "--buildtype=release",
-                            "-Dtrust_paths=/etc/pki/anchors"],
-                            mainWorkDirectoryPath)
+        runMesonCommand(arguments:  "setup                                  \
+                                    --reconfigure                           \
+                                    #{@buildDirectoryNames["MainBuild"]}    \
+                                    --prefix=/usr                           \
+                                    --buildtype=release                     \
+                                    -Dtrust_paths=/etc/pki/anchors",
+                        path:   mainWorkDirectoryPath)
     end
 
     def build
@@ -41,10 +44,17 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        runNinjaCommand(["install"],buildDirectoryPath,{"DESTDIR" => "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}"})
+        runNinjaCommand(arguments:      "install",
+                        path:           buildDirectoryPath,
+                        environment:    {"DESTDIR" => "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}"})
 
-        makeLink("/usr/libexec/p11-kit/trust-extract-compat","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/update-ca-certificates",:symbolicLinkByOverwrite)
-        makeLink("./pkcs11/p11-kit-trust.so","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/libnssckbi.so",:symbolicLinkByOverwrite)
+        makeLink(   target: "/usr/libexec/p11-kit/trust-extract-compat",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/update-ca-certificates",
+                    type:   :symbolicLinkByOverwrite)
+
+        makeLink(   target: "./pkcs11/p11-kit-trust.so",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/libnssckbi.so",
+                    type:   :symbolicLinkByOverwrite)
     end
 
 end

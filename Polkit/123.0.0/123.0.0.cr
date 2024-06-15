@@ -5,27 +5,30 @@ class Target < ISM::Software
         super
 
         if option("Js")
-            fileReplaceTextAtLineNumber("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/src/polkitbackend/polkitbackendjsauthority.cpp"," { JS_Init"," { JS::DisableJitBackend(); JS_Init",59)
+            fileReplaceTextAtLineNumber(path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/src/polkitbackend/polkitbackendjsauthority.cpp",
+                                        text:       " { JS_Init",
+                                        newText:    " { JS::DisableJitBackend(); JS_Init",
+                                        lineNumber: 59)
         end
     end
 
     def configure
         super
 
-        runMesonCommand([   "setup",
-                            "--reconfigure",
-                            @buildDirectoryNames["MainBuild"],
-                            "--prefix=/usr",
-                            "--buildtype=release",
-                            "#{option("Elogind") ? "-Dsession_tracking=libelogind" : ""}",
-                            "-Dauthfw=#{option("Linux-Pam") ? "pam" : "shadow"}",
-                            "-Dintrospection=#{option("Gobject-Introspection") ? "true" : "false"}",
-                            "#{option("Js") ? "-Djs_engine=mozjs" : ""}",
-                            "-Dman=false",
-                            "-Dexamples=false",
-                            "-Dgtk_doc=false",
-                            "-Dtests=false"],
-                            mainWorkDirectoryPath)
+        runMesonCommand(arguments:  "setup                                                                  \
+                                    --reconfigure                                                           \
+                                    #{@buildDirectoryNames["MainBuild"]}                                    \
+                                    --prefix=/usr                                                           \
+                                    --buildtype=release                                                     \
+                                    #{option("Elogind") ? "-Dsession_tracking=libelogind" : ""}             \
+                                    -Dauthfw=#{option("Linux-Pam") ? "pam" : "shadow"}                      \
+                                    -Dintrospection=#{option("Gobject-Introspection") ? "true" : "false"}   \
+                                    #{option("Js") ? "-Djs_engine=mozjs" : ""}                              \
+                                    -Dman=false                                                             \
+                                    -Dexamples=false                                                        \
+                                    -Dgtk_doc=false                                                         \
+                                    -Dtests=false",
+                        path:       mainWorkDirectoryPath)
     end
 
     def build
@@ -37,7 +40,9 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        runNinjaCommand(["install"],buildDirectoryPath,{"DESTDIR" => "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}"})
+        runNinjaCommand(arguments:      "install",
+                        path:           buildDirectoryPath,
+                        environment:    {"DESTDIR" => "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}"})
 
         if option("Linux-Pam")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")

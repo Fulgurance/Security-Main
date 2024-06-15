@@ -9,11 +9,11 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--localstatedir=/var",
-                            "--sysconfdir=/etc",
-                            "--docdir=/usr/share/doc/gnupg-2.4.3"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr          \
+                                    --localstatedir=/var    \
+                                    --sysconfdir=/etc       \
+                                    --docdir=/usr/share/doc/gnupg-2.4.3",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -25,7 +25,8 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
     end
 
 end

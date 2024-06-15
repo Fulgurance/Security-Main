@@ -3,15 +3,15 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--libexecdir=/usr/lib",
-                            "--with-secure-path",
-                            "--with-all-insults",
-                            "--with-env-editor",
-                            option("Linux-Pam") ? "--with-pam" : "--without-pam",
-                            "--docdir=/usr/share/doc/sudo-1.9.14p3",
-                            "--with-passprompt=\"[sudo] password for %p: \""],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr                                          \
+                                    --libexecdir=/usr/lib                                   \
+                                    --with-secure-path                                      \
+                                    --with-all-insults                                      \
+                                    --with-env-editor                                       \
+                                    #{option("Linux-Pam") ? "--with-pam" : "--without-pam"} \
+                                    --docdir=/usr/share/doc/sudo-1.9.14p3                   \
+                                    --with-passprompt=\"[sudo] password for %p: \"",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -23,7 +23,8 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
 
         if option("Linux-Pam")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")

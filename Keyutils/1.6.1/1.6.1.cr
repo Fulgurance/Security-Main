@@ -3,7 +3,9 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileReplaceText("#{buildDirectoryPath}/Makefile","$(LIBDIR)/$(PKGCONFIG_DIR)","/usr/lib/pkgconfig")
+        fileReplaceText(path:       "#{buildDirectoryPath}/Makefile",
+                        text:       "$(LIBDIR)/$(PKGCONFIG_DIR)",
+                        newText:    "/usr/lib/pkgconfig")
     end
 
     def build
@@ -15,13 +17,13 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["NO_ARLIB=1",
-                    "LIBDIR=/usr/lib",
-                    "BINDIR=/usr/bin",
-                    "SBINDIR=/usr/sbin",
-                    "DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}",
-                    "install"],
-                    path: buildDirectoryPath)
+        makeSource( arguments:  "NO_ARLIB=1                                                     \
+                                LIBDIR=/usr/lib                                                 \
+                                BINDIR=/usr/bin                                                 \
+                                SBINDIR=/usr/sbin                                               \
+                                DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}  \
+                                install",
+                    path:       buildDirectoryPath)
     end
 
 end

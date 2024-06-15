@@ -11,13 +11,13 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--sbindir=/usr/sbin",
-                            "--sysconfdir=/etc",
-                            "--libdir=/usr/lib",
-                            "--enable-securedir=/usr/lib/security",
-                            "--docdir=/usr/share/doc/Linux-PAM-1.5.3"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr                          \
+                                    --sbindir=/usr/sbin                     \
+                                    --sysconfdir=/etc                       \
+                                    --libdir=/usr/lib                       \
+                                    --enable-securedir=/usr/lib/security    \
+                                    --docdir=/usr/share/doc/Linux-PAM-1.5.3",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -29,7 +29,8 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")
 
@@ -75,7 +76,7 @@ class Target < ISM::Software
     def install
         super
 
-        runChmodCommand(["04755","/usr/sbin/unix_chkpwd"])
+        runChmodCommand("04755 /usr/sbin/unix_chkpwd")
     end
 
 end

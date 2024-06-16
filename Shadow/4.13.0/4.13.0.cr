@@ -8,7 +8,8 @@ class Target < ISM::Software
                         newText:    "")
 
         replaceTextAllFilesRecursivelyNamed(path:       "#{buildDirectoryPath}/man",
-                                            text:       "Makefile.in","groups.1 ",
+                                            filename:   "Makefile.in",
+                                            text:       "groups.1 ",
                                             newText:    " ")
 
         replaceTextAllFilesRecursivelyNamed(path:       "#{buildDirectoryPath}/man",

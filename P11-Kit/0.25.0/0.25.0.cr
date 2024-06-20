@@ -5,14 +5,6 @@ class Target < ISM::Software
         @buildDirectoryNames["MainBuild"] = "p11-build"
         super
 
-        fileReplaceTextAtLineNumber(path:       "#{mainWorkDirectoryPath}/p11-kit/modules.c",
-                                    text:       "(gi)",
-                                    newText:    "(gi && gi != C_GetInterface)",
-                                    lineNumber: 386)
-
-        fileDeleteLine("#{mainWorkDirectoryPath}trust/trust-extract-compat",20)
-        fileDeleteLine("#{mainWorkDirectoryPath}trust/trust-extract-compat",31)
-
         data = <<-CODE
         # Copy existing anchor modifications to /etc/ssl/local
         /usr/libexec/make-ca/copy-trust-modifications

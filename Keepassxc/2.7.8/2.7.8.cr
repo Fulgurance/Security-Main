@@ -8,11 +8,11 @@ class Target < ISM::Software
     def configure
         super
 
-        runCmakeCommand(arguments:  "-DCMAKE_INSTALL_PREFIX=/usr
-                                    -DCMAKE_BUILD_TYPE=Release
-                                    -DWITH_XC_DOCS=OFF
-                                    -DWITH_GUI_TESTS=OFF
-                                    -DWITH_TESTS=OFF
+        runCmakeCommand(arguments:  "-DCMAKE_INSTALL_PREFIX=/usr    \
+                                    -DCMAKE_BUILD_TYPE=Release      \
+                                    -DWITH_XC_DOCS=OFF              \
+                                    -DWITH_GUI_TESTS=OFF            \
+                                    -DWITH_TESTS=OFF                \
                                     ..",
                         path:       buildDirectoryPath)
     end

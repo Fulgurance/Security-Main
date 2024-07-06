@@ -45,7 +45,7 @@ class Target < ISM::Software
                     type:   :symbolicLinkByOverwrite)
 
         makeLink(   target: "./pkcs11/p11-kit-trust.so",
-                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/libnssckbi.so",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib64/libnssckbi.so",
                     type:   :symbolicLinkByOverwrite)
     end
 

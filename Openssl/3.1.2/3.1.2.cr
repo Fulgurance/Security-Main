@@ -27,9 +27,6 @@ class Target < ISM::Software
 
         makeSource( arguments:  "MANSUFFIX=ssl DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath} install",
                     path:       buildDirectoryPath)
-
-        moveFile(   "#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/doc/openssl",
-                    "#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/doc/openssl-3.1.2")
     end
 
 end

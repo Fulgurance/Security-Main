@@ -14,7 +14,7 @@ class Target < ISM::Software
 
         runChmodCommand("0755 /etc/ssl/local")
 
-        softwareIsInstalled("Make-Ca") ? runMakeCaCommand("-r") : runMakeCaCommand("-g")
+        softwareIsInstalled("@Security-Main:Make-Ca") ? runMakeCaCommand("-r") : runMakeCaCommand("-g")
     end
 
 end

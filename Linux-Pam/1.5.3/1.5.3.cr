@@ -34,7 +34,7 @@ class Target < ISM::Software
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")
 
-        if !softwareIsInstalled("Linux-Pam")
+        if !softwareIsInstalled("@Security-Main:Linux-Pam")
             systemAccountData = <<-CODE
             account   required    pam_unix.so
             CODE

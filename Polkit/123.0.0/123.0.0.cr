@@ -20,7 +20,7 @@ class Target < ISM::Software
                                     #{@buildDirectoryNames["MainBuild"]}                                    \
                                     --prefix=/usr                                                           \
                                     --buildtype=release                                                     \
-                                    -Dos_type=\"\"                                                          \
+                                    -Dos_type=\"#{Ism.settings.systemTargetName}\"                          \
                                     #{option("Elogind") ? "-Dsession_tracking=libelogind" : ""}             \
                                     -Dauthfw=#{option("Linux-Pam") ? "pam" : "shadow"}                      \
                                     -Dintrospection=#{option("Gobject-Introspection") ? "true" : "false"}   \

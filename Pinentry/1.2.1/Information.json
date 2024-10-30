@@ -72,7 +72,7 @@
         {
           "port": "KdeBase-Main",
           "name": "Kde-Frameworks",
-          "version": ">=5.109.0",
+          "version": ">=5.0.0 ~ <6.0.0",
           "options": []
         }
       ],
@@ -86,7 +86,7 @@
         {
           "port": "KdeSoftwares-Main",
           "name": "Kwayland",
-          "version": ">=5.109.0",
+          "version": ">=5.0.0 ~ <6.0.0",
           "options": []
         }
       ],

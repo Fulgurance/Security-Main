@@ -1,0 +1,104 @@
+{
+  "port": "Security-Main",
+  "name": "Cryptsetup",
+  "version": "2.7.5",
+  "architectures": ["x86_64"],
+  "description": "Cryptsetup and LUKS open-source disk encryption",
+  "website": "https://gitlab.com/cryptsetup/cryptsetup/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Json-C",
+      "version": ">=0.17.0",
+      "options": []
+    },
+    {
+      "port": "FileSystems-Main",
+      "name": "Lvm2",
+      "version": ">=2.3.22",
+      "options": []
+    },
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Popt",
+      "version": ">=1.19.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [
+    "CONFIG_MD",
+    "CONFIG_BLK_DEV_DM",
+    "CONFIG_DM_CRYPT"
+  ],
+  "options": [
+    {
+      "name": "Openrc",
+      "description": "Enable openrc support",
+      "active": true,
+      "dependencies": [
+        {
+          "port": "InitSystems-Main",
+          "name": "Openrc",
+          "version": ">=0.46.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Libpwquality",
+      "description": "Enable libpwquality support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "SecurityLibraries-Main",
+          "name": "Libpwquality",
+          "version": ">=1.4.5",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Xts",
+      "description": "Enable xts support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": [
+        "CONFIG_CRYPTO_XTS"
+      ]
+    },
+    {
+      "name": "Sha256",
+      "description": "Enable sha256 support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": [
+        "CONFIG_CRYPTO_SHA256"
+      ]
+    },
+    {
+      "name": "Aes",
+      "description": "Enable aes support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": [
+        "CONFIG_CRYPTO_AES"
+      ]
+    },
+    {
+      "name": "SymmetricKeyCipher",
+      "description": "Enable symmetric key cipher support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": [
+        "CONFIG_CRYPTO_USER_API_SKCIPHER"
+      ]
+    }
+  ],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}

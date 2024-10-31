@@ -1,0 +1,44 @@
+{
+  "port": "Security-Main",
+  "name": "Acl",
+  "version": "2.3.2",
+  "architectures": ["x86_64"],
+  "description": "Commands for Manipulating POSIX Access Control Lists",
+  "website": "https://savannah.nongnu.org/projects/acl",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "SystemBase-Main",
+      "name": "SystemBase",
+      "version": ">=0.2.0",
+      "options": ["Pass3"]
+    },
+    {
+      "port": "Utilities-Main",
+      "name": "Attr",
+      "version": ">=2.5.1",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "32Bits",
+      "description": "Enable 32 bits support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": ["CONFIG_IA32_EMULATION"]
+    },
+    {
+      "name": "x32Bits",
+      "description": "Enable x32 bits support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": ["CONFIG_X86_X32"]
+    }
+  ],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}

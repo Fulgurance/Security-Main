@@ -1,0 +1,23 @@
+{
+  "port": "Security-Main",
+  "name": "Keyutils",
+  "version": "1.6.3",
+  "architectures": ["x86_64"],
+  "description": "Tools used to control the key management system built into the Linux kernel",
+  "website": "https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "NetworkingTools-Main",
+      "name": "Mit-Krb5",
+      "version": ">=1.21.2",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}

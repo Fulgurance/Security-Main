@@ -1,0 +1,128 @@
+{
+  "port": "Security-Main",
+  "name": "Pinentry",
+  "version": "1.3.1",
+  "architectures": ["x86_64"],
+  "description": "Small collection of dialog programs that allow GnuPG to read passphrases and PIN numbers in a secure manner",
+  "website": "https://www.gnupg.org/related_software/pinentry/index.html",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "SecurityLibraries-Main",
+      "name": "Libassuan",
+      "version": ">=2.5.6",
+      "options": []
+    },
+    {
+      "port": "SecurityLibraries-Main",
+      "name": "Libgpg-Error",
+      "version": ">=1.47.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Emacs",
+      "description": "Enable emacs support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "TextEditors-Main",
+          "name": "Emacs",
+          "version": ">=29.1.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Fltk",
+      "description": "Enable fltk support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "GraphicsLibraries-Main",
+          "name": "Fltk",
+          "version": ">=1.3.8",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Gtk+2",
+      "description": "Enable gtk+ support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "GraphicsLibraries-Main",
+          "name": "Gtk+",
+          "version": "<3.0.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Kde-Frameworks",
+      "description": "Enable kde-frameworks support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "KdeBase-Main",
+          "name": "Kde-Frameworks",
+          "version": ">=5.0.0 ~ <6.0.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Kwayland",
+      "description": "Enable kwayland support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "KdeSoftwares-Main",
+          "name": "Kwayland",
+          "version": ">=5.0.0 ~ <6.0.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Libsecret",
+      "description": "Enable libsecret support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "SecurityLibraries-Main",
+          "name": "Libsecret",
+          "version": ">=0.21.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Qt",
+      "description": "Enable qt support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "BaseLibraries-Main",
+          "name": "Qt",
+          "version": ">=5.0.0 ~ <6.0.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}

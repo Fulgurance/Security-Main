@@ -1,0 +1,41 @@
+{
+  "port": "Security-Main",
+  "name": "Keepassxc",
+  "version": "2.7.9",
+  "architectures": ["x86_64"],
+  "description": "Cross-platform community-driven port of the Windows application Keepass Password Safe",
+  "website": "https://keepassxc.org/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Zlib",
+      "version": ">=1.2.13",
+      "options": ["Minizip"]
+    },
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Qt",
+      "version": ">=5.0.0 ~ <6.0.0",
+      "options": []
+    },
+    {
+      "port": "SecurityLibraries-Main",
+      "name": "Botan",
+      "version": ">=3.4.0",
+      "options": []
+    },
+    {
+      "port": "Security-Main",
+      "name": "Argon2",
+      "version": ">=0.0.0-20190702",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}

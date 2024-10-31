@@ -1,0 +1,116 @@
+{
+  "port": "Security-Main",
+  "name": "Gnupg",
+  "version": "2.4.6",
+  "architectures": ["x86_64"],
+  "description": "Complete and free implementation of the OpenPGP standard as defined by RFC4880",
+  "website": "https://gnupg.org/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "SecurityLibraries-Main",
+      "name": "Libassuan",
+      "version": ">=2.5.6",
+      "options": []
+    },
+    {
+      "port": "SecurityLibraries-Main",
+      "name": "Libgcrypt",
+      "version": ">=1.10.2",
+      "options": []
+    },
+    {
+      "port": "SecurityLibraries-Main",
+      "name": "Libksba",
+      "version": ">=1.6.4",
+      "options": []
+    },
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Npth",
+      "version": ">=1.6.0",
+      "options": []
+    },
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Openldap",
+      "version": ">=2.6.6",
+      "options": []
+    },
+    {
+      "port": "SecurityLibraries-Main",
+      "name": "Gnutls",
+      "version": ">=3.8.1",
+      "options": []
+    },
+    {
+      "port": "Security-Main",
+      "name": "Pinentry",
+      "version": ">=1.2.1",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Curl",
+      "description": "Enable curl support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "NetworkingLibraries-Main",
+          "name": "Curl",
+          "version": ">=8.2.1",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Fuse",
+      "description": "Enable fuse support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "FileSystems-Main",
+          "name": "Fuse",
+          "version": ">=3.16.1",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Libusb",
+      "description": "Enable libusb support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "BaseLibraries-Main",
+          "name": "Libusb",
+          "version": ">=1.0.26",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Sqlite",
+      "description": "Enable sqlite support",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "DatabaseLibraries-Main",
+          "name": "Sqlite",
+          "version": ">=3.42.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}
